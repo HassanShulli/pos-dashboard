@@ -1,0 +1,146 @@
+.tables-displayed {
+  position: relative;
+  text-align: center;
+  height: 100px;
+  width: 100px;
+  color: white;
+  background-color: #4c5365;
+  border: #38374e 1px solid;
+}
+
+.items-displayed {
+  position: relative;
+  text-align: center;
+  margin: 10px;
+}
+
+.items-displayed:hover {
+  position: relative;
+  text-align: center;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.tab-inactive {
+  background-color: #d3dfdf;
+}
+
+.tab-active {
+  background-color: #919595;
+}
+
+mat-icon:hover {
+  cursor: pointer;
+}
+
+.display {
+  display: inline-block;
+}
+
+.order-total {
+  width: 100%;
+  height: 10%;
+  margin: auto;
+  text-align: center;
+}
+
+.order-total-button {
+  background-color: #159335;
+  border-radius: 50px;
+}
+
+.quarter-width {
+  width: 25%;
+}
+
+.half-width {
+  width: 50%;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.tables-number {
+  position: absolute;
+  font-size: 35px;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.tables-heading {
+  position: absolute;
+  font-size: 20px;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.coffee-tab-div {
+  width: 140px;
+  height: 40px;
+  line-height: 42px;
+}
+
+.tab-div {
+  position: absolute;
+  top: 0px;
+  width: 70%;
+  min-width: 280px;
+}
+
+.cakes-tab-div {
+  width: 140px;
+  height: 40px;
+  line-height: 42px;
+}
+
+.tab-label {
+  line-height: 1.5;
+  vertical-align: center;
+}
+
+.divider-big {
+  height: 50px;
+}
+
+.divider-small {
+  height: 18px;
+}
+
+.items-div {
+  position: absolute;
+  top: 50px;
+}
+
+.items-image {
+  height: 90px;
+  width: 110px;
+  border-radius: 50px;
+}
+
+.order-container {
+  height: 90%;
+  width: 90%;
+  position: absolute;
+  top: 0px;
+  background-color: white;
+  border: #152d48 solid 1px;
+  border-radius: 25px;
+}
+
+.orders-section {
+  width: 100%;
+  height: 75%;
+  overflow-y: scroll;
+}
+
+.item-quantity {
+  line-height: 1.5;
+  vertical-align: center;
+}

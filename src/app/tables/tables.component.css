@@ -1,0 +1,111 @@
+.tables-main-container {
+  background-color: #E0E1E9;
+  height: 100%;
+  width: 100%;
+  margin-top: -20px;
+}
+
+.header-container {
+  height: 118px;
+}
+
+.tables-displayed {
+  position: relative;
+  text-align: center;
+  margin: 10px;
+}
+
+.tables-displayed:hover {
+  position: relative;
+  text-align: center;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.table-image {
+  width: 170px;
+  height: 170px;
+  border-radius: 30px;
+}
+
+.page-title {
+  text-align: center;
+  min-width: 300px;
+}
+
+.create-button-div {
+  text-align: center;
+}
+
+.create-button {
+  background-color: #159335;
+  border-radius: 50px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.full-width-inputs {
+  width: 100%;
+  margin-left: 17%;
+
+}
+
+.display {
+  display: inline-block;
+}
+
+.background {
+  background-color: #E0E1E9;;
+}
+
+.label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.input-div {
+  text-align: center;
+  width: 30%;
+}
+
+.num-input {
+  width: 220px;
+}
+
+.delete-div {
+  width: 20%;
+}
+
+.table-num-input {
+  width: 220px;
+}
+
+.delete-icon {
+  color: lightcoral;
+}
+
+.button-group {
+  text-align: right;
+  width: 45%;
+}
+
+.create-button {
+  background-color: green;
+  border-radius: 50px;
+  margin-right: 20px;
+}
+
+.cancel-button-div {
+  text-align: left;
+  width: 40%;
+}
+
+.cancel-button {
+  background-color: lightcoral;
+  border-radius: 50px;
+  margin-left: 40px;
+}

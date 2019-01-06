@@ -1,0 +1,124 @@
+.items-displayed {
+  position: relative;
+  text-align: center;
+  margin: 10px;
+}
+
+.items-displayed:hover {
+  position: relative;
+  text-align: center;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.tab-inactive {
+  background-color: #d3dfdf;
+}
+
+.tab-active {
+  background-color: #919595;
+}
+
+.divider-small {
+  height: 15px;
+}
+
+.divider-width {
+  width: 15px;
+}
+
+.divider-inline {
+  width: 5%;
+}
+
+.divider-inline-med {
+  width: 10%
+}
+
+.divider-inline-mid-large {
+  width: 15%
+}
+
+.divider-inline-large {
+  width: 20%
+}
+
+.divider-third {
+  width: 30%
+}
+
+.center-text {
+  text-align: center;
+}
+
+.right-align-text {
+  text-align: center;
+}
+
+.left-align-text {
+  text-align: center;
+}
+
+.tab-div {
+  display: inline-block;
+  width: 140px;
+  height: 40px;
+  text-align: center;
+  line-height: 42px;
+}
+
+.display {
+  display: inline-block;
+}
+
+.tab-label {
+  line-height: 1.5;
+  vertical-align: center;
+}
+
+.items-view-div {
+  height: 118px;
+}
+
+.create-button {
+  background-color: #159335;
+  border-radius: 50px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.half-width {
+  width: 45%;
+}
+
+.input-width {
+  width: 160px;
+}
+
+.cancel-button {
+  background-color: lightcoral;
+  border-radius: 50px;
+}
+
+.cancel-button-div {
+  text-align: left;
+  width: 40%;
+}
+
+.delete-icon {
+  color: lightcoral;
+}
+
+.create-button {
+  background-color: green;
+  border-radius: 50px;
+  margin-right: 20px;
+}
+
+.item-image {
+  height: 90px;
+  width: 110px;
+  border-radius: 50px;
+}
