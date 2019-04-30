@@ -29,12 +29,16 @@
   background-color: #919595;
 }
 
-mat-icon:hover {
+mat-icon :hover {
   cursor: pointer;
 }
 
 .display {
   display: inline-block;
+}
+
+.display :hover {
+  cursor: pointer;
 }
 
 .order-total {

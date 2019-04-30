@@ -27,13 +27,15 @@ import {
 } from '@angular/material';
 
 import {DataService} from "./services/data.service";
+import { ActivityComponent } from './activity/activity.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TablesComponent,
     OrdersComponent,
-    ItemsComponent
+    ItemsComponent,
+    ActivityComponent
   ],
   imports: [
     BrowserModule,

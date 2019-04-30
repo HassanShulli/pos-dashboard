@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {DataService} from "../services/data.service";
+import {DataService} from '../services/data.service';
 
 @Component({
   selector: 'app-tables',
@@ -44,13 +44,13 @@ export class TablesComponent implements OnInit {
   selectTable(tableClicked) {
     this.newTable = tableClicked;
     this.mode = 'edit';
-  };
+  }
 
   createTableMode() {
     this.mode = 'create';
     this.newTableCreated = {};
     this.clearTable();
-  };
+  }
 
   createTable() {
     if (this.newTable.seats === null || this.newTable.seats === undefined ||
@@ -62,7 +62,7 @@ export class TablesComponent implements OnInit {
         .subscribe(result => {
           if (result) {
             if (result.success === false) {
-              alert("Please Ensure that the inserted table number is unique");
+              alert('Please Ensure that the inserted table number is unique');
             } else {
               this.getTables();
             }
@@ -70,7 +70,7 @@ export class TablesComponent implements OnInit {
         });
       this.mode = 'view';
     }
-  };
+  }
 
   clearTable() {
     this.newTable = {
@@ -90,7 +90,7 @@ export class TablesComponent implements OnInit {
       });
     this.clearTable();
     this.mode = 'view';
-  };
+  }
 
   deleteTable(tableForDelete) {
     this.dataService.deleteTable(tableForDelete)

@@ -3,8 +3,8 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable, of} from 'rxjs';
 import {catchError, tap} from 'rxjs/operators';
 
-// const apiURL = 'http://localhost:3000/'; //for local use
-const apiURL = ''; //for heroku deployment
+const apiURL = 'http://localhost:3000/'; // for local use
+// const apiURL = ''; //for heroku deployment
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +20,7 @@ export class DataService {
     this.headers = this.headers.append(header, content);
   }
 
-  //Items
+  // Items
 
   getItems(): Observable<any> {
     return this.http.request('get', `${apiURL}item/read`, {headers: this.headers})
@@ -30,7 +30,7 @@ export class DataService {
         }),
         catchError(this.handleError('getItems()'))
       );
-  };
+  }
 
   createItem(newItem): Observable<any> {
     return this.http.post(`${apiURL}item/create`, newItem)
@@ -107,7 +107,7 @@ export class DataService {
       );
   }
 
-  //Orders
+  // Orders
 
   createOrder(neworder): Observable<any> {
     return this.http.post(`${apiURL}order/create`, neworder)

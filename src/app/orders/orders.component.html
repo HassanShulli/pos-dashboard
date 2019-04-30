@@ -30,7 +30,8 @@
       <div class="display" *ngIf="mode === 'order'">
         <div *ngIf="coffeeTab === 'tab-active' && cakesTab === 'tab-inactive'">
           <div class="display" *ngFor="let item of items;">
-            <div class="items-displayed" (click)="addToOrder(item);calcTotal();" *ngIf="item.type === 'coffee'">
+            <div class="items-displayed" (click)="addToOrder(item);calcTotal();"
+             *ngIf="item.type === 'coffee'">
               <img src="../../assets/{{item.fileName}}.PNG" class="items-image">
             </div>
           </div>
@@ -38,7 +39,8 @@
 
         <div *ngIf="cakesTab === 'tab-active' && coffeeTab === 'tab-inactive'">
           <div class="display" *ngFor="let item of items;">
-            <div class="items-displayed" (click)="addToOrder(item);calcTotal();" *ngIf="item.type === 'cake'">
+            <div class="items-displayed" (click)="addToOrder(item);calcTotal();"
+            *ngIf="item.type === 'cake'">
               <img src="../../assets/{{item.fileName}}.PNG" class="items-image">
             </div>
           </div>

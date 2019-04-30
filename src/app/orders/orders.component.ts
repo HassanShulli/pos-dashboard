@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {DataService} from "../services/data.service";
+import {DataService} from '../services/data.service';
 
 @Component({
   selector: 'app-orders',
@@ -35,14 +35,18 @@ export class OrdersComponent implements OnInit {
     this.orderTotal = 0;
   }
 
+  printPage() {
+    window.print();
+  }
+
   getItems() {
     this.dataService.getItems()
       .subscribe(result => {
         if (result) {
           this.items = result.result;
         }
-      })
-  };
+      });
+  }
 
   getTables() {
     this.dataService.getAllTables()
