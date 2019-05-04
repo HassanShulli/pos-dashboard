@@ -1,4 +1,4 @@
-<div class="tables-main-container">
+<div class="tables-main-container" style="background-color: white">
   <h2 class="page-title">Tables</h2>
   <div class="header-container">
     <div class="create-button-div" *ngIf="mode === 'view'">
@@ -10,13 +10,15 @@
       <div class="full-width-inputs">
         <div class="display input-div">
           <mat-form-field class="table-num-input">
-            <input matInput placeholder="Table Number" type="number" [(ngModel)]="newTable.number" required>
+            <input matInput placeholder="Table Number" type="number" [(ngModel)]="newTable.number"
+            autocomplete="off" required>
           </mat-form-field>
         </div>
 
         <div class="display input-div">
           <mat-form-field class="num-input">
-            <input matInput placeholder="Number of Seats" type="number" [(ngModel)]="newTable.seats" required>
+            <input matInput placeholder="Number of Seats" type="number" [(ngModel)]="newTable.seats"
+            autocomplete="off" required>
           </mat-form-field>
         </div>
 
@@ -46,8 +48,8 @@
     </div>
   </div>
 
-  <div class="display background" *ngFor="let table of tables;">
-    <div class="tables-displayed" (click)="selectTable(table)">
+  <div class="display background" *ngFor="let table of tables;" style="background-color: white">
+    <div class="tables-displayed" (click)="selectTable(table)" style="background-color: white">
       <img src="../../assets/table170px.jpg" class="table-image">
       <label class="label">
         Table {{table.number}}</label>

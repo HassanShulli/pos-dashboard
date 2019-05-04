@@ -108,6 +108,15 @@ export class DataService {
   }
 
   // Orders
+  getOrders(pageIndex, limit): Observable<any> {
+    return this.http.get(`${apiURL}order/read?pageIndex=${pageIndex}&limit=${limit}`)
+    .pipe(
+      tap(result => {
+        console.log('readOrders()');
+      }),
+      catchError(this.handleError('readOrders'))
+    );
+  }
 
   createOrder(neworder): Observable<any> {
     return this.http.post(`${apiURL}order/create`, neworder)

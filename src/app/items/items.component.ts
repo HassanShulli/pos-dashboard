@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {DataService} from "../services/data.service";
+import {DataService} from '../services/data.service';
 
 @Component({
   selector: 'app-items',
@@ -33,10 +33,10 @@ export class ItemsComponent implements OnInit {
     this.coffeeOptions = ['drink-blue', 'drink-green', 'drink-purple', 'drink-red', 'drink-yellow'];
     this.newItem = {
       id: '',
-      name: "",
+      name: '',
       price: 0,
-      type: "coffee",
-      fileName: ""
+      type: 'coffee',
+      fileName: ''
     };
     this.options = this.coffeeOptions;
   }
@@ -48,6 +48,7 @@ export class ItemsComponent implements OnInit {
   }
 
   switchTab(clickedTab) {
+    this.cancel();
     if (clickedTab === 'coffeeTab') {
       this.cakesTab = 'tab-inactive';
       this.coffeeTab = 'tab-active';
@@ -67,8 +68,8 @@ export class ItemsComponent implements OnInit {
         if (result) {
           this.items = result.result;
         }
-      })
-  };
+      });
+  }
 
 
   createItem() {
@@ -91,7 +92,7 @@ export class ItemsComponent implements OnInit {
         });
       this.mode = 'view';
     }
-  };
+  }
 
   clearItem() {
     this.newItem = {
@@ -107,7 +108,7 @@ export class ItemsComponent implements OnInit {
     this.newItemCreated = {};
 
     this.clearItem();
-  };
+  }
 
   editItem(updatedItem) {
     this.dataService.updateItem(updatedItem)
@@ -117,8 +118,8 @@ export class ItemsComponent implements OnInit {
           this.getItems();
           this.mode = 'view';
         }
-      })
-  };
+      });
+  }
 
   deleteItem(itemForDelete) {
     this.dataService.deleteItem(itemForDelete)
@@ -128,7 +129,7 @@ export class ItemsComponent implements OnInit {
           this.getItems();
           this.mode = 'view';
         }
-      })
+      });
   }
 
   cancel() {

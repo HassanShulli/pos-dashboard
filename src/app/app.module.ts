@@ -26,7 +26,7 @@ import {
   MatGridListModule
 } from '@angular/material';
 
-import {DataService} from "./services/data.service";
+import {DataService} from './services/data.service';
 import { ActivityComponent } from './activity/activity.component';
 
 @NgModule({

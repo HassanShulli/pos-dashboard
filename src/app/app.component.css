@@ -38,6 +38,8 @@ mat-toolbar-row .account {
 }
 
 .main-sidenav a {
+  height: 4.6vh;
+  min-height: 30px;
   color: #FFFFFF;
 }
 

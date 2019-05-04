@@ -118,6 +118,6 @@ export class OrdersComponent implements OnInit {
       console.log('calcTotal called :  this.newOrder : ', eachItem.itemQuantity + eachItem.itemPrice);
       tempTotal += (eachItem.itemQuantity * eachItem.itemPrice);
     });
-    this.orderTotal = tempTotal;
+    this.newOrder.total = tempTotal;
   }
 }
