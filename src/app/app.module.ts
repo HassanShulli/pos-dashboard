@@ -28,6 +28,8 @@ import {
 
 import {DataService} from './services/data.service';
 import { ActivityComponent } from './activity/activity.component';
+import { MainNavComponent } from './main-nav/main-nav.component';
+import { LayoutModule } from '@angular/cdk/layout';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { ActivityComponent } from './activity/activity.component';
     TablesComponent,
     OrdersComponent,
     ItemsComponent,
-    ActivityComponent
+    ActivityComponent,
+    MainNavComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +58,8 @@ import { ActivityComponent } from './activity/activity.component';
     MatTabsModule,
     MatToolbarModule,
     FormsModule,
-    MatGridListModule
+    MatGridListModule,
+    LayoutModule
   ],
   exports: [
     MatButtonModule,
