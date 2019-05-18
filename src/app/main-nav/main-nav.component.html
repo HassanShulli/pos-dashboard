@@ -1,23 +1,24 @@
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport="true"
+  <mat-sidenav #drawer  class="theme" fixedInViewport="true"
+
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="!(isHandset$ | async)">
-    <mat-toolbar>Menu</mat-toolbar>
-    <mat-nav-list>
+    <mat-toolbar class="theme">Abby's Café</mat-toolbar>
+    <mat-nav-list style="margin-top: -10px;">
       <!-- <a mat-list-item href="#">Link 1</a>
       <a mat-list-item href="#">Link 2</a>
       <a mat-list-item href="#">Link 3</a> -->
 
-      <a mat-list-item matLine routerLink='/tables'><mat-icon>view_module</mat-icon>Tables</a>
-      <a mat-list-item matLine routerLink='/items'><mat-icon>list</mat-icon>Items</a>
-      <a mat-list-item matLine routerLink='/orders'><mat-icon>shopping_cart</mat-icon>Orders</a>
-      <a mat-list-item matLine routerLink='/activity'><mat-icon>list_alt</mat-icon>Activity Logs</a>
+      <a class="list-item" disableRipple class="theme" mat-list-item matLine routerLink='/tables' routerLinkActive="active-list-item"><mat-icon>view_module</mat-icon>Tables</a>
+      <a class="list-item" disableRipple class="theme" mat-list-item matLine routerLink='/items' routerLinkActive="active-list-item"><mat-icon>list</mat-icon>Items</a>
+      <a class="list-item" disableRipple class="theme" mat-list-item matLine routerLink='/orders' routerLinkActive="active-list-item"><mat-icon>shopping_cart</mat-icon>Orders</a>
+      <a class="list-item" disableRipple class="theme" mat-list-item matLine routerLink='/activity' routerLinkActive="active-list-item"><mat-icon>list_alt</mat-icon>Activity Logs</a>
 
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar color="primary">
+    <mat-toolbar class="theme">
       <button
         type="button"
         aria-label="Toggle sidenav"
@@ -25,14 +26,14 @@
         (click)="drawer.toggle()">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <div style="text-align: center;">
+      <!-- <div style="text-align: center;">
           Abby's
-          Coffee & Cake
+          Coffee & Cake -->
         <!-- <img src="../assets/coffebean.png" routerLink='/tables' class="inline-display logo">
         <div class="inline-display store-name">Abby's
           Coffee & Cake
         </div> -->
-      </div>
+      <!-- </div> -->
       <!-- <span>mypos-dash</span> -->
     </mat-toolbar>
     <!-- Add Content Here -->
