@@ -3,11 +3,14 @@
   background-color: #2F3139 !important;
 }
 
+.title {
+  height: 66px;
+}
+
 .active-list-item {
   color: black !important;
   background-color: white !important;
 }
-
 
 .sidenav-container {
   height: 100%;
@@ -15,32 +18,4 @@
 
 .sidenav {
   width: 200px;
-}
-
-.sidenav .mat-toolbar {
-  background: inherit;
-}
-
-.mat-toolbar.mat-primary {
-  position: sticky;
-  top: 0;
-  z-index: 1;
-}
-.inline-display {
-  display: inline-block;
-}
-
-/* .logo {
-  width: 90px;
-  height: 90px;
-  color: #322348;
-  border-radius: 50px;
-  margin: 10px 0 0 10px;
-} */
-
-.store-name {
-  margin-left: 10px;
-  margin-bottom: 5px;
-  font-size: 26px;
-  text-align: center;
 }

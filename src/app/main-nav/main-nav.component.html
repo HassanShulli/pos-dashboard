@@ -4,11 +4,8 @@
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="!(isHandset$ | async)">
-    <mat-toolbar class="theme">Abby's Café</mat-toolbar>
+    <mat-toolbar class="theme title">Abby's Café</mat-toolbar>
     <mat-nav-list style="margin-top: -10px;">
-      <!-- <a mat-list-item href="#">Link 1</a>
-      <a mat-list-item href="#">Link 2</a>
-      <a mat-list-item href="#">Link 3</a> -->
 
       <a class="list-item" disableRipple class="theme" mat-list-item matLine routerLink='/tables' routerLinkActive="active-list-item"><mat-icon>view_module</mat-icon>Tables</a>
       <a class="list-item" disableRipple class="theme" mat-list-item matLine routerLink='/items' routerLinkActive="active-list-item"><mat-icon>list</mat-icon>Items</a>
@@ -26,17 +23,8 @@
         (click)="drawer.toggle()">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <!-- <div style="text-align: center;">
-          Abby's
-          Coffee & Cake -->
-        <!-- <img src="../assets/coffebean.png" routerLink='/tables' class="inline-display logo">
-        <div class="inline-display store-name">Abby's
-          Coffee & Cake
-        </div> -->
-      <!-- </div> -->
-      <!-- <span>mypos-dash</span> -->
     </mat-toolbar>
-    <!-- Add Content Here -->
+    <!-- Content -->
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
