@@ -18,3 +18,8 @@
 .sidenav {
   width: 200px;
 }
+
+.fixed {
+  position: fixed;
+  top: 0;
+}

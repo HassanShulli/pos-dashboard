@@ -1,11 +1,11 @@
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer  class="theme" fixedInViewport="true"
+  <mat-sidenav #drawer  class="theme fixed" fixedInViewport="true"
 
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="!(isHandset$ | async)">
-    <mat-toolbar class="theme title">Abby's Café</mat-toolbar>
-    <mat-nav-list style="margin-top: -10px;">
+    <mat-toolbar  class="theme title">Abby's Café</mat-toolbar>
+    <mat-nav-list >
 
       <a class="list-item" disableRipple class="theme" mat-list-item matLine routerLink='/tables' routerLinkActive="active-list-item"><mat-icon>view_module</mat-icon>Tables</a>
       <a class="list-item" disableRipple class="theme" mat-list-item matLine routerLink='/items' routerLinkActive="active-list-item"><mat-icon>list</mat-icon>Items</a>
@@ -15,7 +15,7 @@
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar class="theme">
+    <mat-toolbar class="theme fixed">
       <button
         type="button"
         aria-label="Toggle sidenav"

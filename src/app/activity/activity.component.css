@@ -1,0 +1,16 @@
+th {
+  background-color: #70c0e6;
+  color: #2F3139;
+  font-size: 16px;
+  text-align: center;
+}
+
+td {
+  font-size: 13px;
+  text-align: center;
+}
+
+.quarter {
+  width: 25%;
+  text-align: center;
+}
