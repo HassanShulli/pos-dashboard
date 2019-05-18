@@ -82,13 +82,59 @@ export class OrdersComponent implements OnInit {
     };
   }
 
+  // initNewItem() {
+  //   this.newItem = {
+  //     itemId: '',
+  //     itemName: '',
+  //     itemQuantity: 0,
+  //     itemPrice: 0
+  //   };
+  // }
+
   addToOrder(itemAdded) {
+    console.log('itemAdded : ', itemAdded);
+    console.log('newOrder.items : ', this.newOrder.items);
+    let isPresent = false;
     this.newItem = {
+      itemId: itemAdded._id,
       itemName: itemAdded.name,
       itemQuantity: 1,
       itemPrice: itemAdded.price
     };
-    this.newOrder.items.push(this.newItem);
+
+    if (this.newOrder.items.length === 0) {
+      this.newOrder.items.push(this.newItem);
+    } else {
+      // this.initNewItem();
+      for (let j = 0; j < this.newOrder.items.length; j++) {
+        console.log('this.newOrder.items[j]');
+        if (this.newOrder.items[j].itemId === itemAdded._id) {
+
+          this.newOrder.items[j].itemQuantity ++;
+          isPresent = true;
+          break;
+        }
+
+        if (j === this.newOrder.items.length - 1) {
+        //   this.newItem = {
+        //     itemId: itemAdded._id,
+        //     itemName: itemAdded.name,
+        //     itemQuantity: 1,
+        //     itemPrice: itemAdded.price
+        //   };
+          if (isPresent === false) {
+            console.log('isPresent : ', isPresent);
+            console.log('itemAdded : ', itemAdded);
+            this.newOrder.items.push({
+              itemId: itemAdded._id,
+              itemName: itemAdded.name,
+              itemQuantity: 0,
+              itemPrice: itemAdded.price
+            });
+          }
+        }
+      }
+    }
   }
 
   switchTab(clickedTab) {
@@ -102,6 +148,7 @@ export class OrdersComponent implements OnInit {
   }
 
   quantitySize(action, index) {
+    console.log('this.newOrder.items[index] : ', this.newOrder.items[index]);
     if (action === 'increment') {
       this.newOrder.items[index].itemQuantity++;
     } else if (action === 'decrement') {
