@@ -20,29 +20,32 @@
           </div>
       </div>
 
-    <div>
-        <table mat-table [dataSource]="activitiesDataSource" matSort class="mat-elevation-z0"
-        style="width:100%;">
+    <div style="padding: 20px 40px;">
+        <table mat-table [dataSource]="activitiesDataSource" matSort class="mat-elevation-z0">
             <ng-container matColumnDef="createdAt">
-              <th class="quarter" mat-header-cell *matHeaderCellDef mat-sort-header>Created At</th>
-              <td class="quarter" mat-cell *matCellDef="let act" style="width: 30%">{{act.createdAt | date: 'dd-MM-yyyy HH:mm:ss'}}</td>
+              <th class="center" mat-header-cell *matHeaderCellDef mat-sort-header>Created At</th>
+              <td  mat-cell *matCellDef="let act" style="width: 30%">{{act.createdAt | date: 'dd-MM-yyyy HH:mm:ss'}}</td>
             </ng-container>
 
             <ng-container matColumnDef="table">
-              <th class="quarter" mat-header-cell *matHeaderCellDef mat-sort-header>Table Number</th>
-              <td class="quarter" mat-cell *matCellDef="let act" style="width: 15%">{{act.table}}</td>
+              <th class="center" mat-header-cell *matHeaderCellDef mat-sort-header>Table Number</th>
+              <td mat-cell *matCellDef="let act" style="width: 15%">{{act.table}}</td>
             </ng-container>
 
             <ng-container matColumnDef="items">
-                <th class="quarter" mat-header-cell *matHeaderCellDef mat-sort-header>Items</th>
-                <td class="quarter" mat-cell *matCellDef="let act" style="width: 30%">
-                  <div *ngFor="let item of act.items">{{item.itemName}} X {{item.itemQuantity}}</div>
+                <th class="center" mat-header-cell *matHeaderCellDef mat-sort-header>Items</th>
+                <td mat-cell *matCellDef="let act" style="width: 30%">
+                  <div *ngFor="let item of act.items">
+                    <div style="display: inline-block;width: 30%;text-align: left">{{item.itemName}}</div>
+                    X
+                    <div style="display: inline-block;width: 10%;">{{item.itemQuantity}}</div>
+                     </div>
                 </td>
             </ng-container>
 
             <ng-container matColumnDef="total">
-              <th class="quarter" mat-header-cell *matHeaderCellDef mat-sort-header>Total</th>
-              <td class="quarter" mat-cell *matCellDef="let act" style="width: 25%">
+              <th class="center" mat-header-cell *matHeaderCellDef mat-sort-header>Total</th>
+              <td mat-cell *matCellDef="let act" style="width: 25%">
                 {{act.total}}
               </td>
             </ng-container>

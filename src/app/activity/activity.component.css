@@ -1,6 +1,11 @@
+table {
+  width: 100%;
+  text-align: center;
+}
+
 th {
-  background-color: #cacee4;
-  color: #2F3139;
+  background-color: #2F3139;
+  color: #259FD9;
   font-size: 16px;
   text-align: center;
 }
@@ -9,11 +14,13 @@ td {
   font-size: 13px;
   text-align: center;
 }
-
-.quarter {
-  width: 25%;
+.center {
   text-align: center;
 }
+/* .quarter {
+  width: 25%;
+  text-align: center;
+} */
 
 /* input underline colour */
 :host ::ng-deep .mat-form-field-underline {
