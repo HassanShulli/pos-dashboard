@@ -1,7 +1,7 @@
-import {Component, OnInit, Inject} from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
-import {DataService} from '../services/data.service';
+import { DataService } from '../services/data.service';
 
 export interface DialogData {
   mode: string;
@@ -27,7 +27,7 @@ export class ItemsComponent implements OnInit {
   options: any;
 
   constructor(private dataService: DataService,
-              public dialog: MatDialog) {
+    public dialog: MatDialog) {
   }
 
   ngOnInit() {
@@ -36,9 +36,6 @@ export class ItemsComponent implements OnInit {
     this.newItemCreated = {};
     this.coffeeTab = 'tab-active';
     this.cakesTab = 'tab-inactive';
-    // this.cakeOptions = ['cake-cherry', 'cake-chocogoodness', 'cake-chocolate', 'cake-greenslime',
-    //   'cake-lemonslice', 'cake-messy', 'cake-redvelvet', 'cake-scrumptious', 'cake-skittles'];
-    // this.coffeeOptions = ['drink-blue', 'drink-green', 'drink-purple', 'drink-red', 'drink-yellow'];
     this.newItem = {
       id: '',
       name: '',
@@ -51,8 +48,20 @@ export class ItemsComponent implements OnInit {
 
 
   selectItem(selected) {
-    this.newItem = selected;
-    this.mode = 'edit';
+    const cfg = {
+      width: '600px',
+      height: '550px',
+      data: {
+        mode: 'edit',
+        item: selected
+      }
+    };
+
+    const itemDialog = this.dialog.open(CreateItemComponent, cfg);
+
+    itemDialog.afterClosed().subscribe(result => {
+      this.getItems();
+    });
   }
 
   switchTab(clickedTab) {
@@ -79,68 +88,36 @@ export class ItemsComponent implements OnInit {
       });
   }
 
-
-  createItem() {
-    if (this.newItem.name === '' || this.newItem.fileName === '' ||
-      this.newItem.price === null || this.newItem.price === undefined) {
-      alert('Please fill out all of the fields');
-    } else {
-      this.newItemCreated = {
-        id: '',
-        name: this.newItem.name,
-        price: this.newItem.price,
-        type: this.newItem.type,
-        fileName: this.newItem.fileName
-      };
-      this.dataService.createItem(this.newItemCreated)
-        .subscribe(result => {
-          if (result) {
-            this.getItems();
-          }
-        });
-      this.mode = 'view';
-    }
-  }
-
   clearItem() {
     this.newItem = {
       id: '',
       name: '',
       price: 0,
-      fileName: ''
+      fileName: '',
+      type: 'coffee'
     };
   }
 
   createItemMode() {
-    // this.mode = 'create';
-    // this.newItemCreated = {};
-
-    // this.clearItem();
+    this.clearItem();
     const cfg = {
       width: '600px',
       height: '550px',
-      data: { mode: 'add' }
+      data: {
+        mode: 'add',
+        item: this.newItem
+      }
     };
-    const dialogRef = this.dialog.open(CreateItemComponent, cfg);
 
-    dialogRef.afterClosed().subscribe(result => {
+    const itemDialog = this.dialog.open(CreateItemComponent, cfg);
+
+    itemDialog.afterClosed().subscribe(result => {
       this.getItems();
     });
   }
 
   editItem(updatedItem) {
     this.dataService.updateItem(updatedItem)
-      .subscribe(result => {
-        if (result) {
-          this.clearItem();
-          this.getItems();
-          this.mode = 'view';
-        }
-      });
-  }
-
-  deleteItem(itemForDelete) {
-    this.dataService.deleteItem(itemForDelete)
       .subscribe(result => {
         if (result) {
           this.clearItem();
@@ -177,27 +154,76 @@ export class CreateItemComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.initData();
     this.cakeOptions = ['cake-cherry', 'cake-chocogoodness', 'cake-chocolate', 'cake-greenslime',
       'cake-lemonslice', 'cake-messy', 'cake-redvelvet', 'cake-scrumptious', 'cake-skittles'];
     this.coffeeOptions = ['drink-blue', 'drink-green', 'drink-purple', 'drink-red', 'drink-yellow'];
+    this.options = this.coffeeOptions;
+    this.initData();
   }
 
   initData() {
+    this.item = this.data.item;
     if (this.data.mode === 'add') {
-      this.item = {
-        id: '',
-        name: '',
-        price: 0,
-        type: 'coffee',
-        fileName: ''
-      };
       this.title = 'Create Item';
-      this.options = this.coffeeOptions;
     } else if (this.data.mode === 'edit') {
       this.item = this.data.item;
       this.title = 'Edit Item';
     }
+  }
+
+  submit() {
+    if (this.item.name === '' || this.item.fileName === '' ||
+      this.item.price === '' || this.item.price === null || this.item.price === undefined ||
+      this.item.type === '' || this.item.type === null || this.item.type === undefined
+    ) {
+      alert('Please fill out all of the fields');
+    } else if (this.item.price <= 0 ) {
+      alert('Item price must be more than zero');
+    } else {
+      if (this.data.mode === 'add') {
+        console.log('add mode');
+        this.dataService.createItem(this.item)
+          .subscribe(result => {
+            if (result.success === true) {
+              console.log('add result : ', result);
+              this.dialogRef.close();
+            } else if (result.success === false) {
+              alert('Item creation not successful');
+            }
+          }, err => {
+            alert('Item creation not successful');
+          });
+      } else if (this.data.mode === 'edit') {
+        this.dataService.updateItem(this.item)
+          .subscribe(result => {
+            if (result.success === true) {
+              console.log('update result : ', result);
+              this.dialogRef.close();
+            } else if (result.success === false) {
+              alert('Table number must be unique');
+            }
+          });
+      }
+    }
+  }
+
+  deleteItem() {
+    if (confirm('Are you sure you want to delete ?')) {
+      this.dataService.deleteItem(this.item)
+        .subscribe(result => {
+          if (result) {
+            this.dialogRef.close();
+          } else {
+            alert('Failed to delete');
+          }
+        }, err => {
+          alert('Failed to delete');
+        });
+    }
+  }
+
+  closeDialog(): void {
+    this.dialogRef.close();
   }
 
 }

@@ -59,9 +59,9 @@ export class TablesComponent implements OnInit {
         table: tableClicked
       }
     };
-    const dialogRef = this.dialog.open(CreateTableComponent, cfg);
+    const tableDialog = this.dialog.open(CreateTableComponent, cfg);
 
-    dialogRef.afterClosed().subscribe(result => {
+    tableDialog.afterClosed().subscribe(result => {
       this.getTables();
     });
   }
@@ -79,14 +79,6 @@ export class TablesComponent implements OnInit {
     });
   }
 
-  // clearTable() {
-  //   this.newTable = {
-  //     id: '',
-  //     number: 0,
-  //     seats: 0
-  //   };
-  // }
-
   editTable(updatedTable) {
     this.dataService.updateTable(updatedTable)
       .subscribe(result => {
@@ -94,7 +86,6 @@ export class TablesComponent implements OnInit {
           this.getTables();
         }
       });
-    // this.clearTable();
     this.mode = 'view';
   }
 
@@ -183,8 +174,6 @@ export class CreateTableComponent implements OnInit {
             }
           }
         });
-      // this.clearTable();
-      // this.mode = 'view';
     }
 
   }

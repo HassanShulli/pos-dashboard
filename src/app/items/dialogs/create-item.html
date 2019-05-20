@@ -24,7 +24,7 @@
     <div style="display: inline-block;width:70%;text-align: center;min-width: 200px;">
       $
       <mat-form-field class="input-width">
-        <input matInput type="number" placeholder="Price of Item" [(ngModel)]="item.price" required>
+        <input matInput type="number" placeholder="Price of Item" [(ngModel)]="item.price" min="0" required>
       </mat-form-field>
     </div>
     <div style="display: inline-block;width:15%;"></div>
@@ -36,8 +36,9 @@
   <div style="display: inline-block;width:15%;"></div>
   <div style="display: inline-block;width:70%;text-align: center;min-width: 200px;">
     <mat-form-field class="input-width">
-      <mat-select [(ngModel)]="item.fileName">
-        <mat-option *ngFor="let option of options" value="{{option}}">{{option}}</mat-option>
+      <mat-select [(ngModel)]="item.type" aria-placeholder="Item Type">
+        <mat-option value="coffee">Coffee</mat-option>
+        <mat-option value="cake">Cake</mat-option>
       </mat-select>
     </mat-form-field>
   </div>
@@ -47,10 +48,16 @@
 <div style="width: 100%">
   <div style="display: inline-block;width:15%;"></div>
   <div style="display: inline-block;width:70%;text-align: center;min-width: 200px;">
-    <mat-form-field class="input-width">
-      <mat-select [(ngModel)]="item.type">
-        <mat-option value="coffee">Coffee</mat-option>
-        <mat-option value="cake">Cake</mat-option>
+
+    <mat-form-field class="input-width" *ngIf="item.type === 'coffee'">
+      <mat-select [(ngModel)]="item.fileName" aria-placeholder="Coffee Image">
+        <mat-option *ngFor="let option of coffeeOptions" value="{{option}}">{{option}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="input-width" *ngIf="item.type === 'cake'">
+      <mat-select [(ngModel)]="item.fileName" aria-placeholder="Cake Image">
+        <mat-option *ngFor="let option of cakeOptions" value="{{option}}">{{option}}</mat-option>
       </mat-select>
     </mat-form-field>
   </div>
@@ -69,21 +76,10 @@
       Cancel
     </button>
   </div>
-  <div style="width: 33%;display: inline-block;min-width: 140px;text-align: center;">
-    <button style="background-color: #2F3139;color: white;width: 100px;height: 48px;border-radius: 4px;" mat-button (click)="deleteTable();">
+  <div style="width: 33%;display: inline-block;min-width: 140px;text-align: center;" *ngIf="data.mode === 'edit'">
+    <button style="background-color: #2F3139;color: white;width: 100px;height: 48px;border-radius: 4px;" mat-button (click)="deleteItem();">
       <mat-icon>delete</mat-icon>
     </button>
     <!-- #ca2c2c -->
   </div>
-
-
 </div>
-
-<!-- <div style="text-align: center;height: 20px;"> -->
-
-<!-- <mat-icon class="delete-icon" *ngIf="mode === 'edit'" (click)="deleteTable(newTable)">delete</mat-icon> -->
-<!-- </div> -->
-
-<!-- <div class="display delete-div">
-    <mat-icon class="delete-icon" *ngIf="mode === 'edit'" (click)="deleteTable(newTable)">delete</mat-icon>
-</div> -->

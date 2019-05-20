@@ -14,7 +14,7 @@
     <div style="display: inline-block;width:15%;"></div>
     <div style="display: inline-block;width:70%;text-align: center;min-width: 200px;">
       <mat-form-field>
-        <input matInput placeholder="Table Number" type="number" [(ngModel)]="table.number" autocomplete="off" required>
+        <input matInput placeholder="Table Number" type="number" [(ngModel)]="table.number" autocomplete="off" min="1" required>
       </mat-form-field>
     </div>
     <div style="display: inline-block;width:15%;"></div>
@@ -23,7 +23,7 @@
     <div style="display: inline-block;width:15%;"></div>
     <div style="display: inline-block;width:70%;text-align: center;min-width: 200px;">
       <mat-form-field>
-        <input matInput placeholder="Seats" type="number" [(ngModel)]="table.seats" autocomplete="off" required>
+        <input matInput placeholder="Seats" type="number" [(ngModel)]="table.seats" autocomplete="off" min="1" required>
       </mat-form-field>
     </div>
     <div style="display: inline-block;width:15%;"></div>
@@ -48,12 +48,3 @@
     <!-- #ca2c2c -->
   </div>
 </div>
-
-<!-- <div style="text-align: center;height: 20px;"> -->
-
-<!-- <mat-icon class="delete-icon" *ngIf="mode === 'edit'" (click)="deleteTable(newTable)">delete</mat-icon> -->
-<!-- </div> -->
-
-<!-- <div class="display delete-div">
-    <mat-icon class="delete-icon" *ngIf="mode === 'edit'" (click)="deleteTable(newTable)">delete</mat-icon>
-</div> -->
