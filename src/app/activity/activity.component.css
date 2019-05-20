@@ -1,5 +1,5 @@
 th {
-  background-color: #70c0e6;
+  background-color: #cacee4;
   color: #2F3139;
   font-size: 16px;
   text-align: center;
@@ -13,4 +13,26 @@ td {
 .quarter {
   width: 25%;
   text-align: center;
+}
+
+/* input underline colour */
+:host ::ng-deep .mat-form-field-underline {
+  color: #259FD9;
+  background-color: #259FD9 !important;
+}
+
+/* input underline colour when disabled */
+:host ::ng-deep .mat-form-field-disabled .mat-form-field-underline {
+  color: #2B2B2B;
+  background-color: #FFFFFF00 !important;
+}
+
+/* input focused underline ripple effect colour */
+:host ::ng-deep .mat-form-field.mat-focused .mat-form-field-ripple {
+  background-color: #259FD9 !important;
+}
+
+/* input focused field label colour */
+:host ::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+  color: #259FD9 !important;
 }

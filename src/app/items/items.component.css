@@ -36,7 +36,8 @@
 }
 
 .divider-inline-mid-large {
-  width: 15%
+  width: 20%;
+  min-width: 170px;
 }
 
 .divider-inline-large {
@@ -77,12 +78,17 @@
 }
 
 .items-view-div {
-  height: 118px;
+  height: 165px;
 }
 
 .create-button {
-  background-color: #159335;
-  border-radius: 50px;
+  background-color: #2F3139;
+  width: 140px;
+  height: 40px;
+  border-radius: 26px;
+  font-size: 16px;
+  font-weight: normal;
+  color: #259FD9;
 }
 
 .full-width {
@@ -94,12 +100,22 @@
 }
 
 .input-width {
-  width: 160px;
+  width: 25%;
+  min-width: 120px;
+}
+
+.min-width {
+  min-width: 185px;
 }
 
 .cancel-button {
-  background-color: lightcoral;
-  border-radius: 50px;
+  background-color: #ca2c2c;
+  width: 140px;
+  height: 40px;
+  border-radius: 26px;
+  font-size: 16px;
+  font-weight: normal;
+  color: #F4F4F4;
 }
 
 .cancel-button-div {
@@ -111,29 +127,30 @@
   color: lightcoral;
 }
 
-.create-button {
-  background-color: green;
-  border-radius: 50px;
-  margin-right: 20px;
-}
-
 .item-image {
   height: 90px;
   width: 110px;
   border-radius: 50px;
 }
 
-::ng-deep .mat-focused .mat-form-field-label {
-  /*change color of label*/
-  color: lightcoral !important;
- }
-
- ::ng-deep.mat-form-field-underline {
-  /*change color of underline*/
-  background-color: lightcoral !important;
+/* input underline colour */
+:host ::ng-deep .mat-form-field-underline {
+  color: #259FD9;
+  background-color: #259FD9 !important;
 }
 
-::ng-deep.mat-form-field-ripple {
- /*change color of underline when focused*/
- background-color: lightcoral !important;;
+/* input underline colour when disabled */
+:host ::ng-deep .mat-form-field-disabled .mat-form-field-underline {
+  color: #2B2B2B;
+  background-color: #FFFFFF00 !important;
+}
+
+/* input focused underline ripple effect colour */
+:host ::ng-deep .mat-form-field.mat-focused .mat-form-field-ripple {
+  background-color: #259FD9 !important;
+}
+
+/* input focused field label colour */
+:host ::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+  color: #259FD9 !important;
 }

@@ -3,11 +3,11 @@ import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 
 import {AppComponent} from './app.component';
-import {TablesComponent} from './tables/tables.component';
+import {TablesComponent, CreateTableComponent} from './tables/tables.component';
 import {OrdersComponent} from './orders/orders.component';
+import {ItemsComponent, CreateItemComponent} from './items/items.component';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {ItemsComponent} from './items/items.component';
 import {AppRoutingModule} from './app-routing.module';
 import {HttpClientModule} from '@angular/common/http';
 import {
@@ -23,7 +23,8 @@ import {
   MatTableModule,
   MatTabsModule,
   MatToolbarModule,
-  MatGridListModule
+  MatGridListModule,
+  MatDialogModule
 } from '@angular/material';
 
 import {DataService} from './services/data.service';
@@ -35,8 +36,10 @@ import { LayoutModule } from '@angular/cdk/layout';
   declarations: [
     AppComponent,
     TablesComponent,
+    CreateTableComponent,
     OrdersComponent,
     ItemsComponent,
+    CreateItemComponent,
     ActivityComponent,
     MainNavComponent
   ],
@@ -59,7 +62,8 @@ import { LayoutModule } from '@angular/cdk/layout';
     MatToolbarModule,
     FormsModule,
     MatGridListModule,
-    LayoutModule
+    LayoutModule,
+    MatDialogModule
   ],
   exports: [
     MatButtonModule,
@@ -73,9 +77,14 @@ import { LayoutModule } from '@angular/cdk/layout';
     MatSidenavModule,
     MatTableModule,
     MatTabsModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatDialogModule
   ],
-  entryComponents: [TablesComponent],
+  entryComponents: [
+    TablesComponent,
+    CreateTableComponent,
+    CreateItemComponent
+  ],
   providers: [
     DataService
   ],

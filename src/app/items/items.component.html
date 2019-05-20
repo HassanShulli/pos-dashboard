@@ -1,73 +1,84 @@
-<div style="height: 80px;"></div>
-<div>
-  <div class="tab-div"
-       (click)="switchTab('coffeeTab', coffeeTab)"
-       [ngClass]="coffeeTab">
+<div style="height: 64px;"></div>
+<div *ngIf="mode === 'view'">
+  <div class="tab-div" (click)="switchTab('coffeeTab', coffeeTab)" [ngClass]="coffeeTab">
     <label class="tab-label">Coffee</label>
   </div>
-  <div class="tab-div"
-       (click)="switchTab('cakesTab', cakesTab)"
-       [ngClass]="cakesTab"><label class="tab-label">Cakes</label>
+  <div class="tab-div" (click)="switchTab('cakesTab', cakesTab)" [ngClass]="cakesTab">
+    <label class="tab-label">Cakes</label>
   </div>
 </div>
-<div class="divider-small display"></div>
-<div class="items-view-div">
-  <div class="center-text" *ngIf="mode === 'view'">
-    <button class="create-button" mat-button (click)="createItemMode()">Create Item
-    </button>
-  </div>
+<div class="divider-small display" *ngIf="mode === 'view'"></div>
+<div class="center-text" *ngIf="mode === 'view'">
+  <button class="create-button" mat-button (click)="createItemMode()">Create Item
+  </button>
+</div>
+<div class="items-view-div" *ngIf="mode === 'create' || mode === 'edit'">
 
-  <div *ngIf="mode === 'create' || mode === 'edit'">
+  <div>
     <div class="full-width">
-      <div class="divider-inline-large display">
-<div style="height: 80px;"></div>
+      <!-- <div class="divider-inline-large display">
+        <div style="height: 80px;"></div>
+      </div> -->
+      <div style="min-width: 380px;width: 50%;text-align: center" class="display">
+        <!-- <div class="center-text display divider-inline-mid-large"> -->
+          <mat-form-field class="input-width">
+            <input matInput placeholder="Name of Item" [(ngModel)]="newItem.name" required>
+          </mat-form-field>
+        <!-- </div> -->
+
+        <!-- <div class="display center-text divider-inline-mid-large"> -->
+          $
+          <mat-form-field class="input-width">
+            <input matInput type="number" placeholder="Price of Item" [(ngModel)]="newItem.price" required>
+          </mat-form-field>
+        <!-- </div> -->
       </div>
 
-      <div class="center-text display divider-inline-mid-large">
-        <mat-form-field class="input-width">
-          <input matInput placeholder="Name of Item" [(ngModel)]="newItem.name" required>
-        </mat-form-field>
+      <div style="min-width: 380px;width: 50%;text-align: center" class="display">
+        <div class="display center-text divider-inline-mid-large">
+          <mat-form-field class="input-width">
+            <mat-select [(ngModel)]="newItem.fileName">
+              <mat-option *ngFor="let option of options" value="{{option}}">{{option}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="display center-text divider-inline-mid-large">
+          <mat-form-field class="input-width">
+            <mat-select [(ngModel)]="newItem.type">
+              <mat-option value="coffee">Coffee</mat-option>
+              <mat-option value="cake">Cake</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
       </div>
 
-      <div class="display center-text divider-inline-mid-large">
-        $
-        <mat-form-field class="input-width">
-          <input matInput type="number" placeholder="Price of Item" [(ngModel)]="newItem.price" required>
-        </mat-form-field>
-      </div>
 
-      <div class="display center-text divider-inline-mid-large">
-        <mat-form-field class="input-width">
-          <mat-select [(ngModel)]="newItem.fileName">
-            <mat-option *ngFor="let option of options" value="{{option}}">{{option}}</mat-option>
-          </mat-select>
-        </mat-form-field>
-      </div>
 
-      <div class="display center-text divider-inline-mid-large">
-        <mat-form-field class="input-width">
-          <mat-select [(ngModel)]="newItem.type">
-            <mat-option value="coffee">Coffee</mat-option>
-            <mat-option value="cake">Cake</mat-option>
-          </mat-select>
-        </mat-form-field>
-      </div>
 
-      <div class="display divider-inline-mid-large">
+      <!-- <div class="display divider-inline-mid-large">
         <mat-icon class="delete-icon" *ngIf="mode === 'edit'" (click)="deleteItem(newItem)">delete</mat-icon>
+      </div> -->
+    </div>
+    <div style="width: 100%">
+      <div style="display: inline-block;width: 50%;text-align: center">
+          <button class="create-button" *ngIf="mode === 'create'" mat-button (click)="createItem()">Submit
+            </button>
+            <button class="create-button" *ngIf="mode === 'edit'" mat-button (click)="editItem(newItem)">Submit
+            </button>
+      </div>
+      <div style="display: inline-block;width: 50%;text-align: center">
+          <button class="cancel-button" mat-button (click)="cancel()">Cancel
+            </button>
       </div>
     </div>
-    <div class="full-width">
+    <!-- <div class="full-width">
       <div class="divider-third display">
       </div>
       <div class="display divider-inline-mid-large right-align-text">
-        <button class="create-button" *ngIf="mode === 'create'"
-                mat-button
-                (click)="createItem()">Create
+        <button class="create-button" *ngIf="mode === 'create'" mat-button (click)="createItem()">Submit
         </button>
-        <button class="create-button" *ngIf="mode === 'edit'"
-                mat-button
-                (click)="editItem(newItem)">Edit
+        <button class="create-button" *ngIf="mode === 'edit'" mat-button (click)="editItem(newItem)">Submit
         </button>
       </div>
 
@@ -81,11 +92,11 @@
       <div class="display divider-inline-med"></div>
 
     </div>
-  </div>
+  </div> -->
 
 </div>
 
-<div>
+<div *ngIf="mode === 'view'">
   <ng-container *ngIf="coffeeTab === 'tab-active' && cakesTab === 'tab-inactive'">
     <div class="display" *ngFor="let item of items;">
       <div class="items-displayed" (click)="selectItem(item)" *ngIf="item.type === 'coffee'">

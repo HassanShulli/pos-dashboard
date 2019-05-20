@@ -1,5 +1,12 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Inject} from '@angular/core';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+
 import {DataService} from '../services/data.service';
+
+export interface DialogData {
+  mode: string;
+  item: object;
+}
 
 @Component({
   selector: 'app-items',
@@ -19,7 +26,8 @@ export class ItemsComponent implements OnInit {
   coffeeOptions: any;
   options: any;
 
-  constructor(private dataService: DataService) {
+  constructor(private dataService: DataService,
+              public dialog: MatDialog) {
   }
 
   ngOnInit() {
@@ -28,9 +36,9 @@ export class ItemsComponent implements OnInit {
     this.newItemCreated = {};
     this.coffeeTab = 'tab-active';
     this.cakesTab = 'tab-inactive';
-    this.cakeOptions = ['cake-cherry', 'cake-chocogoodness', 'cake-chocolate', 'cake-greenslime',
-      'cake-lemonslice', 'cake-messy', 'cake-redvelvet', 'cake-scrumptious', 'cake-skittles'];
-    this.coffeeOptions = ['drink-blue', 'drink-green', 'drink-purple', 'drink-red', 'drink-yellow'];
+    // this.cakeOptions = ['cake-cherry', 'cake-chocogoodness', 'cake-chocolate', 'cake-greenslime',
+    //   'cake-lemonslice', 'cake-messy', 'cake-redvelvet', 'cake-scrumptious', 'cake-skittles'];
+    // this.coffeeOptions = ['drink-blue', 'drink-green', 'drink-purple', 'drink-red', 'drink-yellow'];
     this.newItem = {
       id: '',
       name: '',
@@ -104,10 +112,20 @@ export class ItemsComponent implements OnInit {
   }
 
   createItemMode() {
-    this.mode = 'create';
-    this.newItemCreated = {};
+    // this.mode = 'create';
+    // this.newItemCreated = {};
 
-    this.clearItem();
+    // this.clearItem();
+    const cfg = {
+      width: '600px',
+      height: '550px',
+      data: { mode: 'add' }
+    };
+    const dialogRef = this.dialog.open(CreateItemComponent, cfg);
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.getItems();
+    });
   }
 
   editItem(updatedItem) {
@@ -135,6 +153,51 @@ export class ItemsComponent implements OnInit {
   cancel() {
     this.getItems();
     this.mode = 'view';
+  }
+
+}
+
+@Component({
+  selector: 'app-create-item-component',
+  templateUrl: './dialogs/create-item.html',
+  styleUrls: ['./items.component.css']
+})
+
+export class CreateItemComponent implements OnInit {
+
+  item: any;
+  title: string;
+  options: any;
+  cakeOptions: any;
+  coffeeOptions: any;
+
+  constructor(public dialogRef: MatDialogRef<CreateItemComponent>,
+    private dataService: DataService,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) {
+  }
+
+  ngOnInit() {
+    this.initData();
+    this.cakeOptions = ['cake-cherry', 'cake-chocogoodness', 'cake-chocolate', 'cake-greenslime',
+      'cake-lemonslice', 'cake-messy', 'cake-redvelvet', 'cake-scrumptious', 'cake-skittles'];
+    this.coffeeOptions = ['drink-blue', 'drink-green', 'drink-purple', 'drink-red', 'drink-yellow'];
+  }
+
+  initData() {
+    if (this.data.mode === 'add') {
+      this.item = {
+        id: '',
+        name: '',
+        price: 0,
+        type: 'coffee',
+        fileName: ''
+      };
+      this.title = 'Create Item';
+      this.options = this.coffeeOptions;
+    } else if (this.data.mode === 'edit') {
+      this.item = this.data.item;
+      this.title = 'Edit Item';
+    }
   }
 
 }

@@ -39,10 +39,10 @@
   text-align: center;
 }
 
-.create-button {
+/* .create-button {
   background-color: #159335;
   border-radius: 50px;
-}
+} */
 
 .full-width {
   width: 100%;
@@ -96,7 +96,9 @@
 }
 
 .create-button {
-  background-color: green;
+  width: 132px;
+  background-color: #2F3139;
+  color: #259FD9;
   border-radius: 50px;
   margin-right: 20px;
 }
@@ -112,17 +114,24 @@
   margin-left: 40px;
 }
 
-::ng-deep .mat-focused .mat-form-field-label {
-  /*change color of label*/
-  color: lightcoral !important;
- }
-
- ::ng-deep.mat-form-field-underline {
-  /*change color of underline*/
-  background-color: lightcoral !important;
+/* input underline colour */
+:host ::ng-deep .mat-form-field-underline {
+  color: #259FD9;
+  background-color: #259FD9 !important;
 }
 
-::ng-deep.mat-form-field-ripple {
- /*change color of underline when focused*/
- background-color: lightcoral !important;;
+/* input underline colour when disabled */
+:host ::ng-deep .mat-form-field-disabled .mat-form-field-underline {
+  color: #2B2B2B;
+  background-color: #FFFFFF00 !important;
+}
+
+/* input focused underline ripple effect colour */
+:host ::ng-deep .mat-form-field.mat-focused .mat-form-field-ripple {
+  background-color: #259FD9 !important;
+}
+
+/* input focused field label colour */
+:host ::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+  color: #259FD9 !important;
 }

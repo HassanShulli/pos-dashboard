@@ -23,3 +23,7 @@
   position: fixed;
   top: 0;
 }
+
+.index {
+  z-index: 2;
+}

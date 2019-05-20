@@ -1,0 +1,89 @@
+<div style="font-size: 20px;height: 70px;text-align: center;margin-right: -24px;margin-left: -25px;margin-top: -24px;background-color: #2F3139">
+  <div style="line-height: 42px;text-align: center;">
+    <label style="line-height: 3.5;display: inline-block;vertical-align: middle;color: #259FD9;padding-left: 20px;">{{title}}</label>
+
+    <button mat-button style="float: right;min-width: 30px;width: 44px;height: 44px;padding: 0;color: white;">
+      <mat-icon style="color: #259FD9;" (click)="closeDialog()">close</mat-icon>
+    </button>
+  </div>
+</div>
+<div style="height: 40px"></div>
+
+<div>
+  <div style="width: 100%">
+    <div style="display: inline-block;width:15%;"></div>
+    <div style="display: inline-block;width:70%;text-align: center;min-width: 200px;">
+      <mat-form-field class="input-width">
+        <input matInput placeholder="Name of Item" [(ngModel)]="item.name" required>
+      </mat-form-field>
+    </div>
+    <div style="display: inline-block;width:15%;"></div>
+  </div>
+  <div style="width: 100%">
+    <div style="display: inline-block;width:15%;"></div>
+    <div style="display: inline-block;width:70%;text-align: center;min-width: 200px;">
+      $
+      <mat-form-field class="input-width">
+        <input matInput type="number" placeholder="Price of Item" [(ngModel)]="item.price" required>
+      </mat-form-field>
+    </div>
+    <div style="display: inline-block;width:15%;"></div>
+  </div>
+</div>
+
+
+<div style="width: 100%">
+  <div style="display: inline-block;width:15%;"></div>
+  <div style="display: inline-block;width:70%;text-align: center;min-width: 200px;">
+    <mat-form-field class="input-width">
+      <mat-select [(ngModel)]="item.fileName">
+        <mat-option *ngFor="let option of options" value="{{option}}">{{option}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div style="display: inline-block;width:15%;"></div>
+</div>
+
+<div style="width: 100%">
+  <div style="display: inline-block;width:15%;"></div>
+  <div style="display: inline-block;width:70%;text-align: center;min-width: 200px;">
+    <mat-form-field class="input-width">
+      <mat-select [(ngModel)]="item.type">
+        <mat-option value="coffee">Coffee</mat-option>
+        <mat-option value="cake">Cake</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div style="display: inline-block;width:15%;"></div>
+</div>
+
+
+<div style="height: 50px;">
+  <div style="width: 33%;display: inline-block;min-width: 140px;text-align: center;">
+    <button style="background-color: #2F3139;color: #259FD9;width: 130px;height: 45px;border-radius: 4px;" mat-button (click)="submit();">
+      Submit
+    </button>
+  </div>
+  <div style="width: 33%;display: inline-block;min-width: 140px;text-align: center;">
+    <button style="background-color: #2F3139;color: white;width: 130px;height: 45px;border-radius: 4px;" mat-button (click)="closeDialog();">
+      Cancel
+    </button>
+  </div>
+  <div style="width: 33%;display: inline-block;min-width: 140px;text-align: center;">
+    <button style="background-color: #2F3139;color: white;width: 100px;height: 48px;border-radius: 4px;" mat-button (click)="deleteTable();">
+      <mat-icon>delete</mat-icon>
+    </button>
+    <!-- #ca2c2c -->
+  </div>
+
+
+</div>
+
+<!-- <div style="text-align: center;height: 20px;"> -->
+
+<!-- <mat-icon class="delete-icon" *ngIf="mode === 'edit'" (click)="deleteTable(newTable)">delete</mat-icon> -->
+<!-- </div> -->
+
+<!-- <div class="display delete-div">
+    <mat-icon class="delete-icon" *ngIf="mode === 'edit'" (click)="deleteTable(newTable)">delete</mat-icon>
+</div> -->
