@@ -16,11 +16,13 @@ export class OrdersComponent implements OnInit {
   mode: string;
   newItem: object;
   orderTotal: number;
+  selectedTable: any;
 
   constructor(private dataService: DataService) {
   }
 
   ngOnInit() {
+    this.selectedTable = '';
     this.getItems();
     this.getTables();
     this.coffeeTab = 'tab-active';
@@ -58,9 +60,9 @@ export class OrdersComponent implements OnInit {
   }
 
   startOrder(tableForOrder) {
+    this.selectedTable = tableForOrder._id;
     this.newOrder.table = tableForOrder.number;
     this.mode = 'order';
-    console.log('this.newOrder : ', this.newOrder);
   }
 
   submitOrder(orderForCreate) {
@@ -69,6 +71,7 @@ export class OrdersComponent implements OnInit {
         if (result) {
           this.clearOrder();
           this.mode = 'noOrder';
+          this.selectedTable = '';
         }
       });
   }
@@ -82,18 +85,7 @@ export class OrdersComponent implements OnInit {
     };
   }
 
-  // initNewItem() {
-  //   this.newItem = {
-  //     itemId: '',
-  //     itemName: '',
-  //     itemQuantity: 0,
-  //     itemPrice: 0
-  //   };
-  // }
-
   addToOrder(itemAdded) {
-    console.log('itemAdded : ', itemAdded);
-    console.log('newOrder.items : ', this.newOrder.items);
     let isPresent = false;
     this.newItem = {
       itemId: itemAdded._id,
@@ -105,9 +97,7 @@ export class OrdersComponent implements OnInit {
     if (this.newOrder.items.length === 0) {
       this.newOrder.items.push(this.newItem);
     } else {
-      // this.initNewItem();
       for (let j = 0; j < this.newOrder.items.length; j++) {
-        console.log('this.newOrder.items[j]');
         if (this.newOrder.items[j].itemId === itemAdded._id) {
 
           this.newOrder.items[j].itemQuantity ++;
@@ -116,15 +106,7 @@ export class OrdersComponent implements OnInit {
         }
 
         if (j === this.newOrder.items.length - 1) {
-        //   this.newItem = {
-        //     itemId: itemAdded._id,
-        //     itemName: itemAdded.name,
-        //     itemQuantity: 1,
-        //     itemPrice: itemAdded.price
-        //   };
           if (isPresent === false) {
-            console.log('isPresent : ', isPresent);
-            console.log('itemAdded : ', itemAdded);
             this.newOrder.items.push({
               itemId: itemAdded._id,
               itemName: itemAdded.name,
@@ -148,7 +130,6 @@ export class OrdersComponent implements OnInit {
   }
 
   quantitySize(action, index) {
-    console.log('this.newOrder.items[index] : ', this.newOrder.items[index]);
     if (action === 'increment') {
       this.newOrder.items[index].itemQuantity++;
     } else if (action === 'decrement') {
@@ -162,7 +143,6 @@ export class OrdersComponent implements OnInit {
     this.orderTotal = 0;
     let tempTotal = 0;
     this.newOrder.items.forEach(function (eachItem) {
-      console.log('calcTotal called :  this.newOrder : ', eachItem.itemQuantity + eachItem.itemPrice);
       tempTotal += (eachItem.itemQuantity * eachItem.itemPrice);
     });
     this.newOrder.total = tempTotal;

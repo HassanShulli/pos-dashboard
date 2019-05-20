@@ -2,10 +2,10 @@
 <div style="height: 64px;"></div>
 <div class="display" *ngFor="let table of tables;">
   <div class="display tables-displayed" (click)="startOrder(table)">
-    <div class="tables-heading">
+    <div class="tables-heading" [ngStyle]="{'color':selectedTable === table._id ? '#259FD9' : 'white' }">
       Table
     </div>
-    <div class="display tables-number">
+    <div class="display tables-number" [ngStyle]="{'color':selectedTable === table._id ? '#259FD9' : 'white' }">
       {{table.number}}
     </div>
   </div>
@@ -81,7 +81,7 @@
       <div class="divider-small"></div>
 
       <div class="order-total">
-        <div>Total : CAD {{newOrder.total | number}}</div>
+        <div>Total : $ {{newOrder.total | number}}</div>
         <button class="order-total-button" mat-button
                 (click)="submitOrder(newOrder)">Submit
         </button>
