@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import {MatPaginator, MatTableDataSource} from '@angular/material';
+import { MatPaginator, MatTableDataSource } from '@angular/material';
 
-import {DataService} from '../services/data.service';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-activity',
@@ -19,9 +19,10 @@ export class ActivityComponent implements OnInit {
   constructor(private dataService: DataService) { }
 
 
- activities: any;
- table: any = {};
- activitiesDataSource: any;
+  activities: any;
+  table: any = {};
+  activitiesDataSource: any;
+  filteredOrders: any;
 
   ngOnInit() {
     this.initData();
@@ -29,37 +30,58 @@ export class ActivityComponent implements OnInit {
 
   initData() {
     this.dataService.getOrders(0, 10)
-    .subscribe(result => {
-      if (result) {
-        this.activities = result.docs;
-        this.activitiesDataSource = new MatTableDataSource(result.docs);
-        this.initPaginator(result.pagination.page, result.pagination.limit, result.pagination.total);
-      }
-    });
+      .subscribe(result => {
+        if (result) {
+          this.activities = result.docs;
+          this.activitiesDataSource = new MatTableDataSource(result.docs);
+          this.initPaginator(result.pagination.page, result.pagination.limit, result.pagination.total);
+        }
+      });
   }
 
   initPaginator(pageIndex, pageSize, length) {
     this.table.pageIndex = pageIndex;
     this.table.pageSize = pageSize;
     this.table.length = length;
-}
+  }
 
-onPageChange(evt) {
-      this.getOrders(evt.pageIndex, evt.pageSize);
-}
+  onPageChange(evt) {
+    this.getOrders(evt.pageIndex, evt.pageSize);
+  }
 
-getOrders(pageIndex, limit) {
-  this.activities = [];
-  this.dataService.getOrders(pageIndex, limit)
-      .subscribe(result => {
-          if (result) {
-              this.activities = result;
-              this.activitiesDataSource = new MatTableDataSource(result.docs);
-              this.initPaginator(result.pagination.page, result.pagination.limit, result.pagination.total);
+  filterTable(input) {
+    this.filteredOrders = [];
+    for (const h of this.activities) {
+      const keys = Object.keys(h);
+      for (let i = 0; i < keys.length; i++) {
+        if (keys[i] === 'createdAt') {
+          if (h[keys[i]].toUpperCase().includes(input.toUpperCase())) {
+            this.filteredOrders.push(h);
+            break;
           }
+        } else if (keys[i] === 'table') {
+          if (h[keys[i]].toString() === input) {
+            this.filteredOrders.push(h);
+            break;
+          }
+        }
+      }
+    }
+    this.activitiesDataSource = new MatTableDataSource(this.filteredOrders);
+  }
+
+  getOrders(pageIndex, limit) {
+    this.activities = [];
+    this.dataService.getOrders(pageIndex, limit)
+      .subscribe(result => {
+        if (result) {
+          this.activities = result;
+          this.activitiesDataSource = new MatTableDataSource(result.docs);
+          this.initPaginator(result.pagination.page, result.pagination.limit, result.pagination.total);
+        }
       }, err => {
       });
-}
+  }
 
 
 }

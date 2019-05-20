@@ -3,12 +3,12 @@
   <div>
       <div>
           <mat-form-field>
-              <input #search matInput placeholder="Order date" (input)="filterTable(search.value)"
+              <input #search matInput placeholder="Order date, Table Number" (input)="filterTable(search.value)"
                      autocomplete="off" >
               <mat-icon matSuffix>search</mat-icon>
           </mat-form-field>
           <div style="display: inline;">
-              <button
+              <!-- <button
                   style="background-color: #2F3139;width: 162px;height: 47px;margin-right: 10px;"
                   mat-button>
                   <span style="font-size: 16px;font-weight: normal;color: #259FD9;">Add</span>
@@ -16,7 +16,7 @@
               <button style="background-color: #2F3139;width: 162px;height: 47px;font-size: 16px;"
                       mat-button >
                   <span style="font-size: 16px;font-weight: normal;color: #259FD9;">Export</span>
-              </button>
+              </button> -->
           </div>
       </div>
 
@@ -25,17 +25,17 @@
         style="width:100%;">
             <ng-container matColumnDef="createdAt">
               <th class="quarter" mat-header-cell *matHeaderCellDef mat-sort-header>Created At</th>
-              <td class="quarter" mat-cell *matCellDef="let act" style="width: 25%">{{act.createdAt | date: 'dd-MM-yyyy HH:mm:ss'}}</td>
+              <td class="quarter" mat-cell *matCellDef="let act" style="width: 30%">{{act.createdAt | date: 'dd-MM-yyyy HH:mm:ss'}}</td>
             </ng-container>
 
             <ng-container matColumnDef="table">
-              <th class="quarter" mat-header-cell *matHeaderCellDef mat-sort-header>Table</th>
-              <td class="quarter" mat-cell *matCellDef="let act" style="width: 25%">{{act.table}}</td>
+              <th class="quarter" mat-header-cell *matHeaderCellDef mat-sort-header>Table Number</th>
+              <td class="quarter" mat-cell *matCellDef="let act" style="width: 15%">{{act.table}}</td>
             </ng-container>
 
             <ng-container matColumnDef="items">
                 <th class="quarter" mat-header-cell *matHeaderCellDef mat-sort-header>Items</th>
-                <td class="quarter" mat-cell *matCellDef="let act" style="width: 25%">
+                <td class="quarter" mat-cell *matCellDef="let act" style="width: 30%">
                   <div *ngFor="let item of act.items">{{item.itemName}} X {{item.itemQuantity}}</div>
                 </td>
             </ng-container>
