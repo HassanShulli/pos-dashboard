@@ -161,6 +161,11 @@ export class CreateItemComponent implements OnInit {
     this.initData();
   }
 
+  clearImage() {
+    this.item.fileName = '';
+    console.log('called : this.item.fileName : ', this.item.fileName);
+  }
+
   initData() {
     this.item = this.data.item;
     if (this.data.mode === 'add') {

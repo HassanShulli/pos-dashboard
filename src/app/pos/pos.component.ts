@@ -2,12 +2,12 @@ import {Component, OnInit} from '@angular/core';
 import {DataService} from '../services/data.service';
 
 @Component({
-  selector: 'app-orders',
-  templateUrl: './orders.component.html',
-  styleUrls: ['./orders.component.css'],
+  selector: 'app-pos',
+  templateUrl: './pos.component.html',
+  styleUrls: ['./pos.component.css'],
   providers: [DataService]
 })
-export class OrdersComponent implements OnInit {
+export class PosComponent implements OnInit {
   tables: any;
   items: any;
   newOrder: any;

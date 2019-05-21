@@ -35,7 +35,7 @@
 <div style="width: 100%">
   <div style="display: inline-block;width:15%;"></div>
   <div style="display: inline-block;width:70%;text-align: center;min-width: 200px;">
-    <mat-form-field class="input-width">
+    <mat-form-field class="input-width" (focusout)="clearImage();">
       <mat-select [(ngModel)]="item.type" aria-placeholder="Item Type">
         <mat-option value="coffee">Coffee</mat-option>
         <mat-option value="cake">Cake</mat-option>

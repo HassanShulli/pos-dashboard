@@ -17,10 +17,6 @@ td {
 .center {
   text-align: center;
 }
-/* .quarter {
-  width: 25%;
-  text-align: center;
-} */
 
 /* input underline colour */
 :host ::ng-deep .mat-form-field-underline {

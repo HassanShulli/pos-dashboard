@@ -4,7 +4,7 @@ import {FormsModule} from '@angular/forms';
 
 import {AppComponent} from './app.component';
 import {TablesComponent, CreateTableComponent} from './tables/tables.component';
-import {OrdersComponent} from './orders/orders.component';
+import {PosComponent} from './pos/pos.component';
 import {ItemsComponent, CreateItemComponent} from './items/items.component';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -37,7 +37,7 @@ import { LayoutModule } from '@angular/cdk/layout';
     AppComponent,
     TablesComponent,
     CreateTableComponent,
-    OrdersComponent,
+    PosComponent,
     ItemsComponent,
     CreateItemComponent,
     ActivityComponent,

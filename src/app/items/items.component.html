@@ -16,7 +16,7 @@
 <div>
   <ng-container *ngIf="coffeeTab === 'tab-active' && cakesTab === 'tab-inactive'">
     <div class="display" *ngFor="let item of items;">
-      <div class="items-displayed" (click)="selectItem(item)" *ngIf="item.type === 'coffee'">
+      <div class="items-displayed" (click)="selectItem(item)" *ngIf="item.type === 'coffee' && item.fileName !== ''">
         <img src="../../assets/{{item.fileName}}.PNG" class="item-image">
       </div>
     </div>
@@ -24,7 +24,7 @@
 
   <ng-container *ngIf="cakesTab === 'tab-active' && coffeeTab === 'tab-inactive'">
     <div class="display" *ngFor="let item of items;">
-      <div class="items-displayed" (click)="selectItem(item)" *ngIf="item.type === 'cake'">
+      <div class="items-displayed" (click)="selectItem(item)" *ngIf="item.type === 'cake' && item.fileName !== ''">
         <img src="../../assets/{{item.fileName}}.PNG" class="item-image">
       </div>
     </div>
