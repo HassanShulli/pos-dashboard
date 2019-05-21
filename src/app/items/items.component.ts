@@ -163,7 +163,6 @@ export class CreateItemComponent implements OnInit {
 
   clearImage() {
     this.item.fileName = '';
-    console.log('called : this.item.fileName : ', this.item.fileName);
   }
 
   initData() {
@@ -186,11 +185,9 @@ export class CreateItemComponent implements OnInit {
       alert('Item price must be more than zero');
     } else {
       if (this.data.mode === 'add') {
-        console.log('add mode');
         this.dataService.createItem(this.item)
           .subscribe(result => {
             if (result.success === true) {
-              console.log('add result : ', result);
               this.dialogRef.close();
             } else if (result.success === false) {
               alert('Item creation not successful');
@@ -202,7 +199,6 @@ export class CreateItemComponent implements OnInit {
         this.dataService.updateItem(this.item)
           .subscribe(result => {
             if (result.success === true) {
-              console.log('update result : ', result);
               this.dialogRef.close();
             } else if (result.success === false) {
               alert('Table number must be unique');
