@@ -57,7 +57,9 @@ export class TablesComponent implements OnInit {
       data: {
         mode: 'edit',
         table: tableClicked
-      }
+      },
+      disableClose: true
+      // backdropClass: 'dialog-backdrop'
     };
     const tableDialog = this.dialog.open(CreateTableComponent, cfg);
 
