@@ -20,10 +20,20 @@ export class DataService {
     this.headers = this.headers.append(header, content);
   }
 
-  // Login
+  // User
 
-  login(body): Observable<any> {
-    return this.http.post(`${apiURL}login`, body)
+  login(user): Observable<any> {
+    return this.http.post(`${apiURL}user/login`, user)
+      .pipe(
+        tap(result => {
+          console.log('login():', result);
+        }),
+        catchError(this.handleError('login()'))
+      );
+  }
+
+  register(user): Observable<any> {
+    return this.http.post(`${apiURL}user/register`, user)
       .pipe(
         tap(result => {
           console.log('login():', result);
