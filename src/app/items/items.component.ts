@@ -2,6 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 import { DataService } from '../services/data.service';
+import { MainNavComponent } from '../main-nav/main-nav.component';
 
 export interface DialogData {
   mode: string;
@@ -27,10 +28,12 @@ export class ItemsComponent implements OnInit {
   options: any;
 
   constructor(private dataService: DataService,
+    private nav: MainNavComponent,
     public dialog: MatDialog) {
   }
 
   ngOnInit() {
+    this.nav.sideNavClass = 'sidenav';
     this.getItems();
     this.mode = 'view';
     this.newItemCreated = {};

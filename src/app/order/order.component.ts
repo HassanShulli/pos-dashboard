@@ -2,29 +2,31 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatTableDataSource } from '@angular/material';
 
 import { DataService } from '../services/data.service';
+import { MainNavComponent } from '../main-nav/main-nav.component';
 
 @Component({
-  selector: 'app-activity',
-  templateUrl: './activity.component.html',
-  styleUrls: ['./activity.component.css']
+  selector: 'app-order',
+  templateUrl: './order.component.html',
+  styleUrls: ['./order.component.css']
 })
-export class ActivityComponent implements OnInit {
+export class OrderComponent implements OnInit {
 
   // activityColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   // dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
 
-  activityColumns: string[] = ['createdAt', 'table', 'items', 'total'];
+  orderColumns: string[] = ['createdAt', 'table', 'items', 'total'];
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService,
+              private nav: MainNavComponent) { }
 
-
-  activities: any;
+  orders: any;
   table: any = {};
-  activitiesDataSource: any;
+  ordersDataSource: any;
   filteredOrders: any;
 
   ngOnInit() {
+    this.nav.sideNavClass = 'sidenav';
     this.initData();
   }
 
@@ -32,8 +34,8 @@ export class ActivityComponent implements OnInit {
     this.dataService.getOrders(0, 10)
       .subscribe(result => {
         if (result) {
-          this.activities = result.docs;
-          this.activitiesDataSource = new MatTableDataSource(result.docs);
+          this.orders = result.docs;
+          this.ordersDataSource = new MatTableDataSource(result.docs);
           this.initPaginator(result.pagination.page, result.pagination.limit, result.pagination.total);
         }
       });
@@ -51,7 +53,7 @@ export class ActivityComponent implements OnInit {
 
   filterTable(input) {
     this.filteredOrders = [];
-    for (const h of this.activities) {
+    for (const h of this.orders) {
       const keys = Object.keys(h);
       for (let i = 0; i < keys.length; i++) {
         if (keys[i] === 'createdAt') {
@@ -67,16 +69,16 @@ export class ActivityComponent implements OnInit {
         }
       }
     }
-    this.activitiesDataSource = new MatTableDataSource(this.filteredOrders);
+    this.ordersDataSource = new MatTableDataSource(this.filteredOrders);
   }
 
   getOrders(pageIndex, limit) {
-    this.activities = [];
+    this.orders = [];
     this.dataService.getOrders(pageIndex, limit)
       .subscribe(result => {
         if (result) {
-          this.activities = result;
-          this.activitiesDataSource = new MatTableDataSource(result.docs);
+          this.orders = result;
+          this.ordersDataSource = new MatTableDataSource(result.docs);
           this.initPaginator(result.pagination.page, result.pagination.limit, result.pagination.total);
         }
       }, err => {

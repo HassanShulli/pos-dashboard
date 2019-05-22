@@ -28,7 +28,7 @@ import {
 } from '@angular/material';
 
 import {DataService} from './services/data.service';
-import { ActivityComponent } from './activity/activity.component';
+import { OrderComponent } from './order/order.component';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { LoginComponent } from './login/login.component';
@@ -41,7 +41,7 @@ import { LoginComponent } from './login/login.component';
     PosComponent,
     ItemsComponent,
     CreateItemComponent,
-    ActivityComponent,
+    OrderComponent,
     MainNavComponent,
     LoginComponent
   ],

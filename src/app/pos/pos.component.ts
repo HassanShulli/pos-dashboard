@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {DataService} from '../services/data.service';
+import { MainNavComponent } from '../main-nav/main-nav.component';
 
 @Component({
   selector: 'app-pos',
@@ -18,10 +19,12 @@ export class PosComponent implements OnInit {
   orderTotal: number;
   selectedTable: any;
 
-  constructor(private dataService: DataService) {
+  constructor(private dataService: DataService,
+              private nav: MainNavComponent) {
   }
 
   ngOnInit() {
+    this.nav.sideNavClass = 'sidenav';
     this.selectedTable = '';
     this.getItems();
     this.getTables();
