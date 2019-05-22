@@ -19,6 +19,10 @@
   width: 200px;
 }
 
+.sidenavnone {
+  display: none;
+}
+
 .fixed {
   position: fixed;
   top: 0;

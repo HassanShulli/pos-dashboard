@@ -4,13 +4,15 @@ import {ItemsComponent} from './items/items.component';
 import {PosComponent} from './pos/pos.component';
 import {TablesComponent} from './tables/tables.component';
 import {ActivityComponent} from './activity/activity.component';
+import {LoginComponent} from './login/login.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/tables', pathMatch: 'full'},
   {path: 'items', component: ItemsComponent},
   {path: 'pos', component: PosComponent},
   {path: 'tables', component: TablesComponent},
-  {path: 'activity', component: ActivityComponent}
+  {path: 'activity', component: ActivityComponent},
+  {path: 'login', component: LoginComponent}
 ];
 
 @NgModule({

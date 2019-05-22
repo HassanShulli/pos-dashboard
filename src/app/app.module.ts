@@ -31,6 +31,7 @@ import {DataService} from './services/data.service';
 import { ActivityComponent } from './activity/activity.component';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { LayoutModule } from '@angular/cdk/layout';
     ItemsComponent,
     CreateItemComponent,
     ActivityComponent,
-    MainNavComponent
+    MainNavComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
