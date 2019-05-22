@@ -3,7 +3,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {ItemsComponent} from './items/items.component';
 import {PosComponent} from './pos/pos.component';
 import {TablesComponent} from './tables/tables.component';
-import {OrderComponent} from './activity/order.component';
+import {OrderComponent} from './order/order.component';
 import {LoginComponent} from './login/login.component';
 
 const routes: Routes = [
@@ -11,7 +11,7 @@ const routes: Routes = [
   {path: 'items', component: ItemsComponent},
   {path: 'pos', component: PosComponent},
   {path: 'tables', component: TablesComponent},
-  {path: 'order', component: OrderComponent},
+  {path: 'orders', component: OrderComponent},
   {path: 'login', component: LoginComponent}
 ];
 

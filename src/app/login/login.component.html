@@ -1,15 +1,33 @@
-<div style="position: absolute;top: 20%;left: 40%;">
+<div style="position: absolute;top: 20%;left: 40%;width: 400px;height: 450px;border: 1px solid #2F3139;color: #259FD9; ">
 
-  <div>
-      <mat-form-field>
-          <input matInput placeholder="User Name" [(ngModel)]="user.username" autocomplete="off" required>
-        </mat-form-field>
+  <div style="height: 150px;padding-top: 40px;text-align: center;font-size: 30px;">
+    Abby's Café
+  </div>
+  <div style="text-align: center">
+    <mat-form-field>
+      <input matInput placeholder="Email" [(ngModel)]="user.username" autocomplete="off" required>
+    </mat-form-field>
+  </div>
+  <div style="text-align: center;">
+    <mat-form-field>
+      <input matInput placeholder="password" type="password" [(ngModel)]="user.password" required>
+    </mat-form-field>
   </div>
 
-  <div>
-      <mat-form-field>
-          <input matInput placeholder="Table Number" type="password" [(ngModel)]="user.password" required>
-        </mat-form-field>
+  <div style="padding: 20px;">
+    <div style="width: 45%;display: inline-block;min-width: 140px;text-align: right;">
+      <button style="background-color: #2F3139;color: #259FD9;width: 130px;height: 45px;border-radius: 4px;"
+      mat-button (click)="login();">
+        Login
+      </button>
+    </div>
+    <div style="width: 10%;display: inline-block;"></div>
+    <div style="width: 45%;display: inline-block;min-width: 140px;text-align: left;">
+      <button style="background-color: #2F3139;color: #259FD9;width: 130px;height: 45px;border-radius: 4px;" mat-button
+        (click)="register();">
+        Register
+      </button>
+    </div>
   </div>
 
 </div>

@@ -20,6 +20,18 @@ export class DataService {
     this.headers = this.headers.append(header, content);
   }
 
+  // Login
+
+  login(body): Observable<any> {
+    return this.http.post(`${apiURL}login`, body)
+      .pipe(
+        tap(result => {
+          console.log('login():', result);
+        }),
+        catchError(this.handleError('login()'))
+      );
+  }
+
   // Items
 
   getItems(): Observable<any> {
