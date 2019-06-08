@@ -11,12 +11,13 @@ import {AuthguardService} from './services/auth.service';
 
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
-  {path: 'items', component: ItemsComponent, canActivate: [AuthguardService]},
-  {path: 'pos', component: PosComponent, canActivate: [AuthguardService]},
-  {path: 'tables', component: TablesComponent, canActivate: [AuthguardService]},
-  {path: 'orders', component: OrderComponent, canActivate: [AuthguardService]},
+  {path: 'items', component: ItemsComponent},
+  {path: 'pos', component: PosComponent},
+  {path: 'tables', component: TablesComponent},
+  {path: 'orders', component: OrderComponent},
   {path: 'login', component: LoginComponent},
-  {path: '**', component: TablesComponent, canActivate: [AuthguardService]}
+  {path: '**', component: TablesComponent}
+  // , canActivate: [AuthguardService]
 ];
 
 @NgModule({

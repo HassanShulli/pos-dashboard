@@ -24,8 +24,8 @@ export class LoginComponent implements OnInit {
     console.log(' this.nav.sideNavClass : ', this.nav.sideNavClass);
     this.nav.sideNavClass = 'sidenavnone';
     this.user = {
-      email: '',
-      password: ''
+      email: 'welcome@gmail.com',
+      password: 'welcome'
     };
   }
 
