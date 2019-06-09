@@ -64,11 +64,15 @@ export class PosComponent implements OnInit {
 
   startOrder(tableForOrder) {
     this.selectedTable = tableForOrder._id;
-    this.newOrder.table = tableForOrder.number;
+    this.newOrder.table = {
+      _id : tableForOrder._id,
+      number : tableForOrder.number
+    },
     this.mode = 'order';
   }
 
   submitOrder(orderForCreate) {
+    console.log('orderForCreate : ', orderForCreate);
     this.dataService.createOrder(orderForCreate)
       .subscribe(result => {
         if (result) {
