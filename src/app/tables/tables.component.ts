@@ -2,6 +2,8 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { DataService } from '../services/data.service';
 import { MainNavComponent } from '../main-nav/main-nav.component';
+import { isValid } from 'cc-validate';
+
 
 export interface DialogData {
   mode: string;
@@ -132,38 +134,44 @@ export class CreateTableComponent implements OnInit {
       this.title = 'Edit Table';
     }
   }
-
   submit() {
-    if (this.table.seats === null || this.table.seats === undefined ||
-      this.table.number === null || this.table.number === undefined ||
-      this.table.seats < 1 || this.table.number < 1) {
-      alert('Please fill in all the fields with a number > 1');
-    } else {
-      if (this.data.mode === 'add') {
-        this.dataService.createTable(this.table)
-          .subscribe(result => {
-            if (result.success === true) {
-              this.dialogRef.close();
-            } else if (result.success === false) {
-              alert('Table number must be unique');
-            }
-          }, err => {
-            alert('Table number must be unique');
-          });
-      } else if (this.data.mode === 'edit') {
-        this.dataService.updateTable(this.table)
-          .subscribe(result => {
-            if (result.success === true) {
-              this.dialogRef.close();
-            } else if (result.success === false) {
-              alert('Table number must be unique');
-            }
-          });
-      }
-
-    }
-
+    let valid = false;
+    console.log('this.table.number : ', this.table.number);
+    valid = isValid(JSON.stringify(this.table.number));
+    console.log('valid  : ', valid);
+    // console.log(isValid(this.table.number));
   }
+  // submit() {
+  //   if (this.table.seats === null || this.table.seats === undefined ||
+  //     this.table.number === null || this.table.number === undefined ||
+  //     this.table.seats < 1 || this.table.number < 1) {
+  //     alert('Please fill in all the fields with a number > 1');
+  //   } else {
+  //     if (this.data.mode === 'add') {
+  //       this.dataService.createTable(this.table)
+  //         .subscribe(result => {
+  //           if (result.success === true) {
+  //             this.dialogRef.close();
+  //           } else if (result.success === false) {
+  //             alert('Table number must be unique');
+  //           }
+  //         }, err => {
+  //           alert('Table number must be unique');
+  //         });
+  //     } else if (this.data.mode === 'edit') {
+  //       this.dataService.updateTable(this.table)
+  //         .subscribe(result => {
+  //           if (result.success === true) {
+  //             this.dialogRef.close();
+  //           } else if (result.success === false) {
+  //             alert('Table number must be unique');
+  //           }
+  //         });
+  //     }
+
+  //   }
+
+  // }
 
   deleteTable() {
 

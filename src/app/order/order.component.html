@@ -45,7 +45,8 @@
       <ng-container matColumnDef="total">
         <th class="center" mat-header-cell *matHeaderCellDef mat-sort-header>Total</th>
         <td mat-cell *matCellDef="let act" style="width: 25%">
-          {{act.total}}
+          <div style="display: inline-block;width: 5%;">$</div>
+          <div style="display: inline-block;width: 20%;">{{act.total}}</div>
         </td>
       </ng-container>
 

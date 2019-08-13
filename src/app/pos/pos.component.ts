@@ -94,11 +94,13 @@ export class PosComponent implements OnInit {
 
   addToOrder(itemAdded) {
     let isPresent = false;
+    console.log('itemAdded : ', itemAdded);
     this.newItem = {
       itemId: itemAdded._id,
       itemName: itemAdded.name,
       itemQuantity: 1,
-      itemPrice: itemAdded.price
+      itemPrice: itemAdded.price,
+      itemType: itemAdded.type
     };
 
     if (this.newOrder.items.length === 0) {
@@ -118,7 +120,8 @@ export class PosComponent implements OnInit {
               itemId: itemAdded._id,
               itemName: itemAdded.name,
               itemQuantity: 0,
-              itemPrice: itemAdded.price
+              itemPrice: itemAdded.price,
+              itemType: itemAdded.type
             });
           }
         }
