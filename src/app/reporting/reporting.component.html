@@ -1,3 +1,89 @@
-<p>
-  reporting works!
-</p>
+<div style="height: 64px;"></div>
+<div style="text-align: center">
+  <h2>Summary</h2>
+</div>
+
+<div class="chart">
+  <div class="chart-div">
+    <mat-card style="height: 11em">
+      <mat-card-header style="height: 20px;">
+        <mat-card-title>No. of Orders</mat-card-title>
+      </mat-card-header>
+      <mat-card-content style="padding-top: 10px;">
+        <canvas baseChart
+                width="250"
+                height="130"
+                [data]="ordersChartData"
+                [options]="options"
+                [colors]="chartColors"
+                [labels]="ordersChartLabels"
+                [chartType]="doughnutChartType">
+        </canvas>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
+<div class="chart">
+  <div class="chart-div">
+    <mat-card style="height: 11em">
+      <mat-card-header style="height: 20px;">
+        <mat-card-title>No. of orders per table</mat-card-title>
+      </mat-card-header>
+      <mat-card-content style="padding-top: 10px;">
+        <canvas baseChart
+                [datasets]="tableBarChartData"
+                [labels]="tableBarChartLabels"
+                [options]="barChartOptions"
+                [colors]="colors"
+                [plugins]="tableBarChartPlugins"
+                [legend]="tableBarChartLegend"
+                [chartType]="barChartType">
+        </canvas>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
+<div class="chart">
+  <div class="chart-div">
+    <mat-card style="height: 11em">
+      <mat-card-header style="height: 20px;">
+        <mat-card-title>No. of orders per coffee type</mat-card-title>
+      </mat-card-header>
+      <mat-card-content style="padding-top: 10px;">
+        <canvas baseChart
+                [datasets]="coffeeBarChartData"
+                [labels]="coffeeBarChartLabels"
+                [options]="barChartOptions"
+                [colors]="colors"
+                [plugins]="coffeeBarChartPlugins"
+                [legend]="coffeeBarChartLegend"
+                [chartType]="barChartType">
+        </canvas>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
+<div class="chart">
+  <div class="chart-div">
+    <mat-card style="height: 11em">
+      <mat-card-header style="height: 20px;">
+        <mat-card-title>No. of orders per cake type</mat-card-title>
+      </mat-card-header>
+      <mat-card-content style="padding-top: 10px;">
+        <canvas baseChart
+                [datasets]="cakeBarChartData"
+                [labels]="cakeBarChartLabels"
+                [options]="barChartOptions"
+                [colors]="colors"
+                [plugins]="cakeBarChartPlugins"
+                [legend]="cakeBarChartLegend"
+                [chartType]="barChartType">
+        </canvas>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+

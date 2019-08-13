@@ -1,0 +1,10 @@
+.chart {
+  text-align: center;
+}
+
+.chart-div {
+  display: inline-flex;
+  min-height: 178px;
+  text-align: center;
+  padding: 2px;
+}

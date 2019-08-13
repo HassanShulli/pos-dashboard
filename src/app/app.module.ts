@@ -24,16 +24,17 @@ import {
   MatTabsModule,
   MatToolbarModule,
   MatGridListModule,
-  MatDialogModule
+  MatDialogModule,
+  MatCardModule
 } from '@angular/material';
-import { ChartsModule } from 'ng2-charts';
+import {ChartsModule} from 'ng2-charts';
 
 import {DataService} from './services/data.service';
-import { OrderComponent } from './order/order.component';
-import { MainNavComponent } from './main-nav/main-nav.component';
-import { LayoutModule } from '@angular/cdk/layout';
-import { LoginComponent } from './login/login.component';
-import { ReportingComponent } from './reporting/reporting.component';
+import {OrderComponent} from './order/order.component';
+import {MainNavComponent} from './main-nav/main-nav.component';
+import {LayoutModule} from '@angular/cdk/layout';
+import {LoginComponent} from './login/login.component';
+import {ReportingComponent} from './reporting/reporting.component';
 
 @NgModule({
   declarations: [
@@ -69,6 +70,7 @@ import { ReportingComponent } from './reporting/reporting.component';
     MatGridListModule,
     LayoutModule,
     MatDialogModule,
+    MatCardModule,
     ChartsModule
   ],
   exports: [
@@ -85,6 +87,7 @@ import { ReportingComponent } from './reporting/reporting.component';
     MatTabsModule,
     MatToolbarModule,
     MatDialogModule,
+    MatCardModule,
     ChartsModule
   ],
   entryComponents: [
