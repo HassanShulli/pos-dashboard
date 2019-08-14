@@ -150,7 +150,9 @@ export class ReportingComponent implements OnInit {
           console.log('this.cakeCount : ', this.cakeCount);
           this.cakeBarChartData[0].data = [];
           for (let i = 0; i < result.result.length; i++) {
-            this.cakeBarChartLabels.push(result.result[i].item_id.name);
+            if (result.result[i].item_id) {
+              this.cakeBarChartLabels.push(result.result[i].item_id.name);
+            }
             tempCake.push(result.result[i].count);
           }
           this.cakeBarChartData[0].data = tempCake;
@@ -171,7 +173,9 @@ export class ReportingComponent implements OnInit {
           this.tableCount = result.result;
           console.log('this.tableCount : ', this.tableCount);
           for (let i = 0; i < result.result.length; i++) {
-            this.tableBarChartLabels.push('Table ' + result.result[i].table_id.number);
+            if (result.result[i].table_id) {
+              this.tableBarChartLabels.push('Table ' + result.result[i].table_id.number);
+            }
             tempTables.push(result.result[i].count);
           }
           this.tableBarChartData[0].data = tempTables;

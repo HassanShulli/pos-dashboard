@@ -11,84 +11,76 @@
   </div>
 </div>
 
-<mat-grid-list cols="10" rowHeight="600px">
-
-  <mat-grid-tile colspan='7'>
-    <!--Coffee / Cake Tabs-->
-    <div class="center-text tab-div" *ngIf="mode === 'order'">
-      <div class="display center-text coffee-tab-div"
-           (click)="switchTab('coffeeTab', coffeeTab)"
-           [ngClass]="coffeeTab"><label class="tab-label">Coffee</label>
-      </div>
-      <div class="display center-text cakes-tab-div"
-           (click)="switchTab('cakesTab', cakesTab)"
-           [ngClass]="cakesTab"><label class="tab-label">Cakes</label>
-      </div>
+<div class="center-text">
+  <div class="center-text tab-div" *ngIf="mode === 'order'">
+    <div class="display center-text coffee-tab-div"
+         (click)="switchTab('coffeeTab', coffeeTab)"
+         [ngClass]="coffeeTab"><label class="tab-label">Coffee</label>
     </div>
-    <div class="display divider-big"></div>
-    <div class="items-div">
-      <!--Items Display-->
-      <div class="display" *ngIf="mode === 'order'">
-        <div *ngIf="coffeeTab === 'tab-active' && cakesTab === 'tab-inactive'">
-          <div class="display" *ngFor="let item of items;">
-            <div class="items-displayed" (click)="addToOrder(item);calcTotal();"
-             *ngIf="item.type === 'coffee'">
-              <img src="../../assets/{{item.fileName}}.PNG" class="items-image">
-            </div>
-          </div>
-        </div>
-
-        <div *ngIf="cakesTab === 'tab-active' && coffeeTab === 'tab-inactive'">
-          <div class="display" *ngFor="let item of items;">
-            <div class="items-displayed" (click)="addToOrder(item);calcTotal();"
-            *ngIf="item.type === 'cake'">
-              <img src="../../assets/{{item.fileName}}.PNG" class="items-image">
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="display center-text cakes-tab-div"
+         (click)="switchTab('cakesTab', cakesTab)"
+         [ngClass]="cakesTab"><label class="tab-label">Cakes</label>
     </div>
-
-  </mat-grid-tile>
-
-  <mat-grid-tile colspan='3'>
-    <!--Order Details-->
-    <div *ngIf="mode === 'order'" class="order-container">
-
-      <div class="divider-small"></div>
-
-      <div class="orders-section">
-        <div class="full-width" *ngFor="let o of newOrder.items;let i = index">
-          <div class="display quarter-width center-text">
-            {{o.itemName}}
-          </div>
-          <div class="display half-width">
-            <button mat-button (click)="quantitySize('decrement', i);calcTotal();">
-              <mat-icon>remove</mat-icon>
-            </button>
-
-            <label class="item-quantity">{{o.itemQuantity}}</label>
-            <button mat-button (click)="quantitySize('increment', i);calcTotal();">
-              <mat-icon>add</mat-icon>
-            </button>
-          </div>
-          <div class="display quarter">
-            {{o.itemPrice}}
+  </div>
+  <div class="display divider-big"></div>
+  <div>
+    <!--Items Display-->
+    <div class="display padding" *ngIf="mode === 'order'">
+      <div *ngIf="coffeeTab === 'tab-active' && cakesTab === 'tab-inactive'">
+        <div class="display" *ngFor="let item of items;">
+          <div class="items-displayed" (click)="addToOrder(item);calcTotal();"
+               *ngIf="item.type === 'coffee'">
+            <img src="../../assets/{{item.fileName}}.PNG" class="items-image">
           </div>
         </div>
       </div>
 
-      <div class="divider-small"></div>
-
-      <div class="order-total">
-        <div>Total : $ {{newOrder.total | number}}</div>
-        <button class="order-total-button" mat-button
-                (click)="submitOrder(newOrder)">Submit
-        </button>
+      <div *ngIf="cakesTab === 'tab-active' && coffeeTab === 'tab-inactive'">
+        <div class="display" *ngFor="let item of items;">
+          <div class="items-displayed" (click)="addToOrder(item);calcTotal();"
+               *ngIf="item.type === 'cake'">
+            <img src="../../assets/{{item.fileName}}.PNG" class="items-image">
+          </div>
+        </div>
       </div>
     </div>
-  </mat-grid-tile>
-</mat-grid-list>
+  </div>
+</div>
 
+<div class="center-text">
+  <!--Order Details-->
+  <div *ngIf="mode === 'order'" class="order-container">
 
+    <div class="divider-small"></div>
 
+    <div class="orders-section">
+      <div class="full-width" *ngFor="let o of newOrder.items;let i = index">
+        <div class="display quarter-width center-text">
+          {{o.itemName}}
+        </div>
+        <div class="display half-width">
+          <button mat-button (click)="quantitySize('decrement', i);calcTotal();">
+            <mat-icon>remove</mat-icon>
+          </button>
+
+          <label class="item-quantity">{{o.itemQuantity}}</label>
+          <button mat-button (click)="quantitySize('increment', i);calcTotal();">
+            <mat-icon>add</mat-icon>
+          </button>
+        </div>
+        <div class="display quarter">
+          {{o.itemPrice}}
+        </div>
+      </div>
+    </div>
+
+    <div class="divider-small"></div>
+
+    <div class="order-total">
+      <div style="padding: 20px;">Total : $ {{newOrder.total | number}}</div>
+      <button class="order-total-button" mat-button
+              (click)="submitOrder(newOrder)">Submit
+      </button>
+    </div>
+  </div>
+</div>

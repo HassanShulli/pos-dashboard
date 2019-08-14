@@ -1,8 +1,8 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import {Component, OnInit, Inject} from '@angular/core';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 
-import { DataService } from '../services/data.service';
-import { MainNavComponent } from '../main-nav/main-nav.component';
+import {DataService} from '../services/data.service';
+import {MainNavComponent} from '../main-nav/main-nav.component';
 
 export interface DialogData {
   mode: string;
@@ -28,8 +28,8 @@ export class ItemsComponent implements OnInit {
   options: any;
 
   constructor(private dataService: DataService,
-    private nav: MainNavComponent,
-    public dialog: MatDialog) {
+              private nav: MainNavComponent,
+              public dialog: MatDialog) {
   }
 
   ngOnInit() {
@@ -53,7 +53,6 @@ export class ItemsComponent implements OnInit {
   selectItem(selected) {
     const cfg = {
       width: '600px',
-      height: '550px',
       data: {
         mode: 'edit',
         item: selected
@@ -105,7 +104,6 @@ export class ItemsComponent implements OnInit {
     this.clearItem();
     const cfg = {
       width: '600px',
-      height: '550px',
       data: {
         mode: 'add',
         item: this.newItem
@@ -117,17 +115,6 @@ export class ItemsComponent implements OnInit {
     itemDialog.afterClosed().subscribe(result => {
       this.getItems();
     });
-  }
-
-  editItem(updatedItem) {
-    this.dataService.updateItem(updatedItem)
-      .subscribe(result => {
-        if (result) {
-          this.clearItem();
-          this.getItems();
-          this.mode = 'view';
-        }
-      });
   }
 
   cancel() {
@@ -152,8 +139,8 @@ export class CreateItemComponent implements OnInit {
   coffeeOptions: any;
 
   constructor(public dialogRef: MatDialogRef<CreateItemComponent>,
-    private dataService: DataService,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData) {
+              private dataService: DataService,
+              @Inject(MAT_DIALOG_DATA) public data: DialogData) {
   }
 
   ngOnInit() {
@@ -184,7 +171,7 @@ export class CreateItemComponent implements OnInit {
       this.item.type === '' || this.item.type === null || this.item.type === undefined
     ) {
       alert('Please fill out all of the fields');
-    } else if (this.item.price <= 0 ) {
+    } else if (this.item.price <= 0) {
       alert('Item price must be more than zero');
     } else {
       if (this.data.mode === 'add') {

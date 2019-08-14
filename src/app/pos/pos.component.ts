@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {DataService} from '../services/data.service';
-import { MainNavComponent } from '../main-nav/main-nav.component';
+import {MainNavComponent} from '../main-nav/main-nav.component';
 
 @Component({
   selector: 'app-pos',
@@ -40,8 +40,9 @@ export class PosComponent implements OnInit {
     this.orderTotal = 0;
   }
 
-  printPage() {
-    window.print();
+  onResize(event) {
+    console.log('event.target.innerWidth : ', event.target.innerWidth);
+    // this.breakpoint = (event.target.innerWidth <= 400) ? 1 : 6;
   }
 
   getItems() {
@@ -65,22 +66,26 @@ export class PosComponent implements OnInit {
   startOrder(tableForOrder) {
     this.selectedTable = tableForOrder._id;
     this.newOrder.table = {
-      _id : tableForOrder._id,
-      number : tableForOrder.number
-    },
+      _id: tableForOrder._id,
+      number: tableForOrder.number
+    };
     this.mode = 'order';
   }
 
   submitOrder(orderForCreate) {
     console.log('orderForCreate : ', orderForCreate);
-    this.dataService.createOrder(orderForCreate)
-      .subscribe(result => {
-        if (result) {
-          this.clearOrder();
-          this.mode = 'noOrder';
-          this.selectedTable = '';
-        }
-      });
+    if (orderForCreate.items.length === 0) {
+      window.alert('No items were added');
+    } else {
+      this.dataService.createOrder(orderForCreate)
+        .subscribe(result => {
+          if (result) {
+            this.clearOrder();
+            this.mode = 'noOrder';
+            this.selectedTable = '';
+          }
+        });
+    }
   }
 
   clearOrder() {
@@ -109,7 +114,7 @@ export class PosComponent implements OnInit {
       for (let j = 0; j < this.newOrder.items.length; j++) {
         if (this.newOrder.items[j].itemId === itemAdded._id) {
 
-          this.newOrder.items[j].itemQuantity ++;
+          this.newOrder.items[j].itemQuantity++;
           isPresent = true;
           break;
         }

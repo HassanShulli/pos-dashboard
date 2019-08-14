@@ -1,3 +1,7 @@
+.inputs-div {
+  text-align: center;
+}
+
 .items-displayed {
   position: relative;
   text-align: center;
@@ -12,6 +16,7 @@
 }
 
 .tab-inactive {
+  cursor: pointer;
   background-color: #d3dfdf;
 }
 

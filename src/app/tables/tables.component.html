@@ -6,47 +6,6 @@
       <button class="create-button" mat-button (click)="createTableMode()">Create Table
       </button>
     </div>
-
-    <!-- <div *ngIf="mode === 'create' || mode === 'edit'">
-      <div class="full-width-inputs">
-        <div class="display input-div">
-          <mat-form-field class="table-num-input">
-            <input matInput placeholder="Table Number" type="number" [(ngModel)]="newTable.number"
-            autocomplete="off" required>
-          </mat-form-field>
-        </div>
-
-        <div class="display input-div">
-          <mat-form-field class="num-input">
-            <input matInput placeholder="Number of Seats" type="number" [(ngModel)]="newTable.seats"
-            autocomplete="off" required>
-          </mat-form-field>
-        </div>
-
-        <div class="display delete-div">
-          <mat-icon class="delete-icon" *ngIf="mode === 'edit'" (click)="deleteTable(newTable)">delete</mat-icon>
-        </div>
-      </div>
-
-      <div class="full-width">
-
-        <div class="display button-group">
-          <button class="create-button" *ngIf="mode === 'create'"
-                  mat-button
-                  (click)="createTable()">Create
-          </button>
-          <button class="create-button" *ngIf="mode === 'edit'"
-                  mat-button
-                  (click)="editTable(newTable)">Edit
-          </button>
-        </div>
-
-        <div class="display cancel-button-div">
-          <button class="cancel-button" mat-button (click)="cancel()">Cancel
-          </button>
-        </div>
-      </div>
-    </div> -->
   </div>
 
   <div class="display background" *ngFor="let table of tables;" style="background-color: white">
