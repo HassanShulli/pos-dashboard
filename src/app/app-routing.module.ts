@@ -7,13 +7,13 @@ import {OrderComponent} from './order/order.component';
 import {ReportingComponent} from './reporting/reporting.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: '/login', pathMatch: 'full'},
+  {path: '', redirectTo: '/reporting', pathMatch: 'full'},
   {path: 'items', component: ItemsComponent},
   {path: 'pos', component: PosComponent},
   {path: 'tables', component: TablesComponent},
   {path: 'orders', component: OrderComponent},
   {path: 'reporting', component: ReportingComponent},
-  {path: '**', component: TablesComponent}
+  {path: '**', component: ReportingComponent}
 ];
 
 @NgModule({
