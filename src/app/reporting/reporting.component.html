@@ -1,15 +1,15 @@
-<div style="height: 64px;"></div>
+<div class="separator"></div>
 <div style="text-align: center">
   <h2>Summary</h2>
 </div>
 
 <div class="chart width">
   <div class="chart-div">
-    <mat-card style="height: 11em">
-      <mat-card-header style="height: 20px;">
+    <mat-card class="mat-card-height">
+      <mat-card-header class="mat-card-header-height">
         <mat-card-title>No. of Orders</mat-card-title>
       </mat-card-header>
-      <mat-card-content style="padding-top: 10px;">
+      <mat-card-content class="mat-card-content">
         <canvas baseChart
                 width="250"
                 height="130"
@@ -26,11 +26,11 @@
 
 <div class="chart width">
   <div class="chart-div">
-    <mat-card style="height: 11em">
-      <mat-card-header style="height: 20px;">
+    <mat-card class="mat-card-height">
+      <mat-card-header class="mat-card-header-height">
         <mat-card-title>No. of orders per table</mat-card-title>
       </mat-card-header>
-      <mat-card-content style="padding-top: 10px;">
+      <mat-card-content class="mat-card-content">
         <canvas baseChart
                 [datasets]="tableBarChartData"
                 [labels]="tableBarChartLabels"
@@ -47,11 +47,11 @@
 
 <div class="chart width">
   <div class="chart-div">
-    <mat-card style="height: 11em">
-      <mat-card-header style="height: 20px;">
+    <mat-card class="mat-card-height">
+      <mat-card-header class="mat-card-header-height">
         <mat-card-title>No. of orders per coffee type</mat-card-title>
       </mat-card-header>
-      <mat-card-content style="padding-top: 10px;">
+      <mat-card-content class="mat-card-content">
         <canvas baseChart
                 [datasets]="coffeeBarChartData"
                 [labels]="coffeeBarChartLabels"
@@ -68,11 +68,11 @@
 
 <div class="chart width">
   <div class="chart-div">
-    <mat-card style="height: 11em">
-      <mat-card-header style="height: 20px;">
+    <mat-card class="mat-card-height">
+      <mat-card-header class="mat-card-header-height">
         <mat-card-title>No. of orders per cake type</mat-card-title>
       </mat-card-header>
-      <mat-card-content style="padding-top: 10px;">
+      <mat-card-content class="mat-card-content">
         <canvas baseChart
                 [datasets]="cakeBarChartData"
                 [labels]="cakeBarChartLabels"

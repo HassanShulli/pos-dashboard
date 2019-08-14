@@ -1,7 +1,22 @@
+.separator {
+  height: 64px;
+}
+
 .chart {
   text-align: center;
 }
 
+.mat-card-height {
+  height: 15em;
+}
+
+.mat-card-content {
+  padding-top: 10px;
+}
+
+.mat-card-header-height {
+  height: 25px;
+}
 @media only screen and (min-width: 601px) {
   .chart-div {
     display: inline-flex;

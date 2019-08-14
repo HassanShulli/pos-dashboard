@@ -11,11 +11,13 @@ import {MultiDataSet, Label} from 'ng2-charts';
 export class ReportingComponent implements OnInit {
   coffeeCount: any;
   cakeCount: any;
+
   // mixedCount: any;
   tableCount: any;
   coffeeOrdersCount = 0;
   cakeOrdersCount = 0;
   mixedOrdersCount = 0;
+
   // Doughnut Chart
   public options: any = {
     legend: {position: 'left'}
@@ -30,6 +32,7 @@ export class ReportingComponent implements OnInit {
   public ordersChartData: MultiDataSet = [
     [0, 0, 0]
   ];
+
   // Tables Bar Chart
   public tableBarChartLegend = true;
   public tableBarChartPlugins = [];
@@ -37,6 +40,7 @@ export class ReportingComponent implements OnInit {
   public tableBarChartData: ChartDataSets[] = [
     {data: [0, 0, 0, 0, 0]}
   ];
+
   // Coffee Bar Chart
   public coffeeBarChartLegend = true;
   public coffeeBarChartPlugins = [];
@@ -44,7 +48,6 @@ export class ReportingComponent implements OnInit {
   public coffeeBarChartData: ChartDataSets[] = [
     {data: [0, 0, 0, 0, 0]}
   ];
-
 
   // Cake Bar Chart
   public cakeBarChartLegend = true;
@@ -142,7 +145,6 @@ export class ReportingComponent implements OnInit {
         if (result.success === true) {
           let tempCake = [];
           this.cakeCount = result.result;
-          console.log('this.cakeCount : ', this.cakeCount);
           this.cakeBarChartData[0].data = [];
           for (let i = 0; i < result.result.length; i++) {
             if (result.result[i].item_id) {
@@ -162,7 +164,6 @@ export class ReportingComponent implements OnInit {
           let tempTables = [];
           this.tableBarChartData[0].data = [];
           this.tableCount = result.result;
-          console.log('this.tableCount : ', this.tableCount);
           for (let i = 0; i < result.result.length; i++) {
             if (result.result[i].table_id) {
               this.tableBarChartLabels.push('Table ' + result.result[i].table_id.number);
@@ -179,7 +180,6 @@ export class ReportingComponent implements OnInit {
       .subscribe(res => {
         if (res.success === true) {
           this.cakeOrdersCount = res.result;
-          console.log('this.cakeOrdersCount : ', this.cakeOrdersCount);
 
           this.ordersChartData = [
             [this.coffeeOrdersCount, this.cakeOrdersCount, this.mixedOrdersCount]
@@ -193,7 +193,6 @@ export class ReportingComponent implements OnInit {
       .subscribe(res => {
         if (res.success === true) {
           this.coffeeOrdersCount = res.result;
-          console.log('this.coffeeOrdersCount : ', this.coffeeOrdersCount);
 
           this.ordersChartData = [
             [this.coffeeOrdersCount, this.cakeOrdersCount, this.mixedOrdersCount]
@@ -207,7 +206,6 @@ export class ReportingComponent implements OnInit {
       .subscribe(res => {
         if (res.success === true) {
           this.mixedOrdersCount = res.result;
-          console.log('mixedOrdersCount : ', this.mixedOrdersCount);
 
           this.ordersChartData = [
             [this.coffeeOrdersCount, this.cakeOrdersCount, this.mixedOrdersCount]
@@ -215,16 +213,4 @@ export class ReportingComponent implements OnInit {
         }
       });
   }
-
-
-  //   this.dataService.orderCount({orderType: 'table'})
-  //     .subscribe(result => {
-  //       if (result.success === true) {
-  //         this.ordersCount = result.result;
-  //         console.log('this.ordersCount : ', this.ordersCount);
-  //       }
-  //     });
-  // }
-
-
 }
