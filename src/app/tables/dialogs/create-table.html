@@ -1,54 +1,52 @@
-<div
-  style="font-size: 20px;height: 70px;text-align: center;margin-right: -24px;margin-left: -25px;margin-top: -24px;background-color: #2F3139">
-  <div style="line-height: 42px;text-align: center;">
-    <label
-      style="line-height: 3.5;display: inline-block;vertical-align: middle;color: #259FD9;padding-left: 20px;">{{title}}</label>
+<div class="header-div">
+  <div class="popup-label-div">
+    <label class="popup-label">{{title}}</label>
 
-    <button mat-button style="float: right;min-width: 30px;width: 44px;height: 44px;padding: 0;color: white;">
-      <mat-icon style="color: #259FD9;" (click)="closeDialog()">close</mat-icon>
+    <button mat-button class="popup-close-button">
+      <mat-icon class="popup-close-button-icon" (click)="closeDialog()">close</mat-icon>
     </button>
   </div>
 </div>
-<div style="height: 40px"></div>
+<div class="popup-separator-div"></div>
 
 <div>
-  <div style="width: 100%">
-    <div style="display: inline-block;width:15%;"></div>
-    <div style="display: inline-block;width:70%;text-align: center;min-width: 200px;">
+  <div class="full-width">
+    <div class="width-fifteen display"></div>
+    <div class="input-fields-div">
       <mat-form-field>
         <input matInput placeholder="Table Number" type="number" [(ngModel)]="table.number" autocomplete="off" min="1"
                required>
       </mat-form-field>
     </div>
-    <div style="display: inline-block;width:15%;"></div>
+    <div class="width-fifteen display"></div>
   </div>
-  <div style="width: 100%">
-    <div style="display: inline-block;width:15%;"></div>
-    <div style="display: inline-block;width:70%;text-align: center;min-width: 200px;">
+  <div class="full-width">
+    <div class="width-fifteen display"></div>
+    <div class="input-fields-div">
       <mat-form-field>
         <input matInput placeholder="Seats" type="number" [(ngModel)]="table.seats" autocomplete="off" min="1" required>
       </mat-form-field>
     </div>
-    <div style="display: inline-block;width:15%;"></div>
+    <div class="width-fifteen display"></div>
   </div>
 </div>
 
-<div style="height: 50px;">
-  <div style="text-align: center;">
-    <div style="display: inline-block;padding: 5px;">
-      <button style="background-color: #2F3139;color: #259FD9;width: 130px;height: 45px;border-radius: 4px;" mat-button
+<div class="button-group-div">
+  <div class="create-button-div">
+    <div class="padding display">
+      <button class="buttons" mat-button
               (click)="submit();">
         Submit
       </button>
     </div>
-    <div style="display: inline-block;padding: 5px;">
-      <button style="background-color: #2F3139;color: white;width: 130px;height: 45px;border-radius: 4px;" mat-button
+    <div class="padding display">
+      <button class="buttons" mat-button
               (click)="closeDialog();">
         Cancel
       </button>
     </div>
-    <div style="display: inline-block;padding: 5px;" *ngIf="data.mode === 'edit'">
-      <button style="background-color: #2F3139;color: white;width: 100px;height: 48px;border-radius: 4px;" mat-button
+    <div class="padding display" *ngIf="data.mode === 'edit'">
+      <button class="delete-button" mat-button
               (click)="deleteTable();">
         <mat-icon>delete</mat-icon>
       </button>

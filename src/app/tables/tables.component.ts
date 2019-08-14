@@ -144,13 +144,10 @@ export class CreateTableComponent implements OnInit {
             }
           });
       }
-
     }
-
   }
 
   deleteTable() {
-
     if (confirm('Are you sure you want to delete ?')) {
       this.dataService.deleteTable(this.table)
         .subscribe(result => {
@@ -163,7 +160,6 @@ export class CreateTableComponent implements OnInit {
           }
         });
     }
-
   }
 
   closeDialog(): void {
