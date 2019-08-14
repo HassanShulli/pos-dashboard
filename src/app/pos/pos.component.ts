@@ -40,11 +40,6 @@ export class PosComponent implements OnInit {
     this.orderTotal = 0;
   }
 
-  onResize(event) {
-    console.log('event.target.innerWidth : ', event.target.innerWidth);
-    // this.breakpoint = (event.target.innerWidth <= 400) ? 1 : 6;
-  }
-
   getItems() {
     this.dataService.getItems()
       .subscribe(result => {
@@ -152,6 +147,10 @@ export class PosComponent implements OnInit {
         this.newOrder.items[index].itemQuantity--;
       }
     }
+  }
+
+  removeItem(index) {
+    this.newOrder.items.splice(index, 1);
   }
 
   calcTotal() {

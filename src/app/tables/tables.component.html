@@ -1,4 +1,4 @@
-<div style="height: 64px;"></div>
+<div class="spacing"></div>
 <div class="tables-main-container" style="background-color: white">
   <h2 class="page-title">Tables</h2>
   <div class="header-container">
@@ -8,8 +8,8 @@
     </div>
   </div>
 
-  <div class="display background" *ngFor="let table of tables;" style="background-color: white">
-    <div class="tables-displayed" (click)="selectTable(table)" style="background-color: white">
+  <div class="display background" *ngFor="let table of tables;">
+    <div class="tables-displayed background" (click)="selectTable(table)">
       <img src="../../assets/table170px.jpg" class="table-image">
       <label class="label">
         Table {{table.number}}</label>

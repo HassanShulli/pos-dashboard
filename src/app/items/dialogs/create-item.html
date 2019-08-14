@@ -36,13 +36,13 @@
 
 <div class="inputs-div">
   <mat-form-field class="input-width" *ngIf="item.type === 'coffee'">
-    <mat-select [(ngModel)]="item.fileName" aria-placeholder="Coffee Image">
+    <mat-select [(ngModel)]="item.fileName" placeholder="Coffee Image">
       <mat-option *ngFor="let option of coffeeOptions" value="{{option}}">{{option}}</mat-option>
     </mat-select>
   </mat-form-field>
 
   <mat-form-field class="inputs-width" *ngIf="item.type === 'cake'">
-    <mat-select [(ngModel)]="item.fileName" aria-placeholder="Cake Image">
+    <mat-select [(ngModel)]="item.fileName" placeholder="Cake Image">
       <mat-option *ngFor="let option of cakeOptions" value="{{option}}">{{option}}</mat-option>
     </mat-select>
   </mat-form-field>

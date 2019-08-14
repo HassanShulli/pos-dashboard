@@ -62,7 +62,6 @@ export class TablesComponent implements OnInit {
         table: tableClicked
       },
       disableClose: true
-      // backdropClass: 'dialog-backdrop'
     };
     const tableDialog = this.dialog.open(CreateTableComponent, cfg);
 
@@ -83,21 +82,6 @@ export class TablesComponent implements OnInit {
       this.getTables();
     });
   }
-
-  editTable(updatedTable) {
-    this.dataService.updateTable(updatedTable)
-      .subscribe(result => {
-        if (result) {
-          this.getTables();
-        }
-      });
-    this.mode = 'view';
-  }
-
-  cancel() {
-    this.mode = 'view';
-  }
-
 }
 
 @Component({

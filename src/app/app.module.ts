@@ -33,7 +33,6 @@ import {DataService} from './services/data.service';
 import {OrderComponent} from './order/order.component';
 import {MainNavComponent} from './main-nav/main-nav.component';
 import {LayoutModule} from '@angular/cdk/layout';
-import {LoginComponent} from './login/login.component';
 import {ReportingComponent} from './reporting/reporting.component';
 
 @NgModule({
@@ -46,7 +45,6 @@ import {ReportingComponent} from './reporting/reporting.component';
     CreateItemComponent,
     OrderComponent,
     MainNavComponent,
-    LoginComponent,
     ReportingComponent
   ],
   imports: [

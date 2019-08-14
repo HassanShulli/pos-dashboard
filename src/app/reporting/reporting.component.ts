@@ -118,7 +118,6 @@ export class ReportingComponent implements OnInit {
     this.initCoffeeOrdersCount();
     this.initCakeOrdersCount();
     this.initMixedOrdersCount();
-    // this.initMixedCount();
   }
 
   initCoffeeCount() {
@@ -128,15 +127,11 @@ export class ReportingComponent implements OnInit {
         if (result.success === true) {
           this.coffeeBarChartData[0].data = [];
           this.coffeeCount = result.result;
-          console.log('this.coffeeCount : ', this.coffeeCount);
           for (let i = 0; i < result.result.length; i++) {
             this.coffeeBarChartLabels.push(result.result[i].item_id.name);
             temp.push(result.result[i].count);
           }
           this.coffeeBarChartData[0].data = temp;
-          // result.result.forEach(coffee => {
-          //   this.coffeeBarChartData[0].data = temp;
-          // });
         }
       });
   }
@@ -156,10 +151,6 @@ export class ReportingComponent implements OnInit {
             tempCake.push(result.result[i].count);
           }
           this.cakeBarChartData[0].data = tempCake;
-          // result.result.forEach(cake => {
-          //   this.cakeBarChartLabels.push(cake.item_id.name);
-          //   this.cakeBarChartData[0].data.push(cake.count);
-          // });
         }
       });
   }
@@ -179,10 +170,6 @@ export class ReportingComponent implements OnInit {
             tempTables.push(result.result[i].count);
           }
           this.tableBarChartData[0].data = tempTables;
-          // result.result.forEach(table => {
-          //   this.tableBarChartLabels.push(table.table_id.number);
-          //   this.tableBarChartData[0].data.push(table.count);
-          // });
         }
       });
   }

@@ -3,18 +3,19 @@
   height: 100%;
   width: 100%;
   min-width: 180px;
-  /* min-width: 960px; */
-  /* margin-top: -20px; */
 }
 
 .header-container {
   height: 118px;
 }
 
+.spacing {
+  height: 64px;
+}
+
 .tables-displayed {
   position: relative;
   text-align: center;
-  /* padding: 10px; */
 }
 
 .tables-displayed:hover {
@@ -38,11 +39,6 @@
 .create-button-div {
   text-align: center;
 }
-
-/* .create-button {
-  background-color: #159335;
-  border-radius: 50px;
-} */
 
 .full-width {
   width: 100%;
