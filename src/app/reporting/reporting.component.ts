@@ -131,7 +131,11 @@ export class ReportingComponent implements OnInit {
           this.coffeeBarChartData[0].data = [];
           this.coffeeCount = result.result;
           for (let i = 0; i < result.result.length; i++) {
-            this.coffeeBarChartLabels.push(result.result[i].item_id.name);
+            if (result.result[i].item_id.name.length > 13) {
+              this.coffeeBarChartLabels.push(result.result[i].item_id.name.slice(0, 12) + '..');
+            } else {
+              this.coffeeBarChartLabels.push(result.result[i].item_id.name);
+            }
             temp.push(result.result[i].count);
           }
           this.coffeeBarChartData[0].data = temp;
@@ -148,7 +152,11 @@ export class ReportingComponent implements OnInit {
           this.cakeBarChartData[0].data = [];
           for (let i = 0; i < result.result.length; i++) {
             if (result.result[i].item_id) {
-              this.cakeBarChartLabels.push(result.result[i].item_id.name);
+              if (result.result[i].item_id.name.length > 13) {
+                this.cakeBarChartLabels.push(result.result[i].item_id.name.slice(0, 12) + '..');
+              } else {
+                this.cakeBarChartLabels.push(result.result[i].item_id.name);
+              }
             }
             tempCake.push(result.result[i].count);
           }

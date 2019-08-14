@@ -1,3 +1,7 @@
+.separator {
+  height: 64px;
+}
+
 .tables-displayed {
   position: relative;
   text-align: center;

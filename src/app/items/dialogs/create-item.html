@@ -1,15 +1,13 @@
-<div
-  style="font-size: 20px;height: 70px;text-align: center;margin-right: -24px;margin-left: -25px;margin-top: -24px;background-color: #2F3139">
-  <div style="line-height: 42px;text-align: center;">
-    <label
-      style="line-height: 3.5;display: inline-block;vertical-align: middle;color: #259FD9;padding-left: 20px;">{{title}}</label>
+<div class="dialog-header-div">
+  <div class="dialog-label-div">
+    <label class="dialog-label">{{title}}</label>
 
-    <button mat-button style="float: right;min-width: 30px;width: 44px;height: 44px;padding: 0;color: white;">
-      <mat-icon style="color: #259FD9;" (click)="closeDialog()">close</mat-icon>
+    <button mat-button class="dialog-header-button">
+      <mat-icon class="dialog-header-button-color" (click)="closeDialog()">close</mat-icon>
     </button>
   </div>
 </div>
-<div style="height: 40px"></div>
+<div class="dialog-separator"></div>
 
 <div class="inputs-div">
   <mat-form-field class="input-width">
@@ -48,22 +46,22 @@
   </mat-form-field>
 </div>
 
-<div style="height: 50px;">
-  <div style="text-align: center;">
-    <div style="display: inline-block;padding: 5px;">
-      <button style="background-color: #2F3139;color: #259FD9;width: 130px;height: 45px;border-radius: 4px;" mat-button
+<div class="dialog-button-group-div">
+  <div class="inputs-div">
+    <div class="dialog-button-div">
+      <button class="dialog-submit-button" mat-button
               (click)="submit();">
         Submit
       </button>
     </div>
-    <div style="display: inline-block;padding: 5px;">
-      <button style="background-color: #2F3139;color: white;width: 130px;height: 45px;border-radius: 4px;" mat-button
+    <div class="dialog-button-div">
+      <button class="dialog-close-button" mat-button
               (click)="closeDialog();">
         Cancel
       </button>
     </div>
-    <div style="display: inline-block;padding: 5px;" *ngIf="data.mode === 'edit'">
-      <button style="background-color: #2F3139;color: white;width: 100px;height: 48px;border-radius: 4px;" mat-button
+    <div class="dialog-button-div" *ngIf="data.mode === 'edit'">
+      <button class="dialog-delete-button" mat-button
               (click)="deleteItem();">
         <mat-icon>delete</mat-icon>
       </button>

@@ -1,5 +1,5 @@
 <!--Tables Display-->
-<div style="height: 64px;"></div>
+<div class="separator"></div>
 <div class="display" *ngFor="let table of tables;">
   <div class="display tables-displayed" (click)="startOrder(table)">
     <div class="tables-heading" [ngStyle]="{'color':selectedTable === table._id ? '#259FD9' : 'white' }">
